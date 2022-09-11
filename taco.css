@@ -1,4 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 
+
+.flyer{
+  width: 100vw;
+  height: 100vh;
+background-color: rgb(140, 212, 229);
+
+
+}
 .menuTaco{
     position: fixed;
     left: -30px;
@@ -72,7 +84,7 @@ animation: tilt-shaking 0.65s infinite;
    position: fixed;
    left: 40px;
    top: 0px;
-   z-index: -8;
+   z-index: 0;
     max-width: 50px;
 
   }
