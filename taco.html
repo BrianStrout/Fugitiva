@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="taco.css">
+</head>
+<body>
+    <div class="container">
+        <div class="flyer">
+            <div class="dropDown"> 
+                
+
+                <!-- <input type="image"id="taco" src="./taco.png" name="submit" width="100" height="48" alt="submit"/>   -->
+
+
+
+
+                <img id="taco" class="menuTaco menuTacoUpright link" src="./taco.png" alt=""></img>
+                <img id="tomato" class="tomato" src="./tomato.png" data-fall alt=""></img>
+                <img id="tomato2" class="tomato" src="./tomato.png" data-fall alt=""></img>
+                <img id="lettuce" class="tomato" src="./lettuce.png" data-fall alt=""></img>
+                <img id="lettuce2" class="tomato" src="./lettuce.png" data-fall alt=""></img>
+                <div id="ddMenu1" class="dropdown-menu">Apps</div>
+                <div id="ddMenu2" class="dropdown-menu">Tacos</div>
+                <div id="ddMenu3" class="dropdown-menu">Bowls</div>
+                <div id="ddMenu4" class="dropdown-menu">Drinks</div>
+                <div id="ddMenu5" class="dropdown-menu">Sweeties</div>
+                <div id="ddMenu6" class="dropdown-menu">Sweeties</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+let taco = document.getElementById('taco');
+let ddMenu = document.querySelectorAll('.dropdown-menu');
+console.log(ddMenu);
+
+document.addEventListener('click', (e)=>{
+
+    if(e.target.classList.contains('dropdown-menu')){
+        
+        let lookAt = (e.target.id);
+        switch (lookAt){
+            case 'ddMenu1':
+                console.log('hit 1');
+                break;
+            case 'ddMenu2':
+                console.log('hit2');
+                break;
+            case 'ddMenu3':
+                console.log('hit3');
+                break;
+            case 'ddMenu4':
+                console.log('hit4');
+                break;
+            case 'ddMenu5':
+                console.log('hit5');
+                break;
+                case 'ddMenu6':
+                console.log('hit6');
+                break;
+        }
+    }
+});
+
+
+function showMenu(){
+    console.log("woo!");
+}
+
+taco.addEventListener('click', (e)=>{
+    taco.classList.toggle('menuTacoUpright');
+    taco.classList.toggle('menuTacoTilt');
+    dropItLikeItsHot();
+  
+} );
+
+
+const tossTheSalad = (e) =>{
+let saladBowl = document.querySelectorAll('[data-fall]');
+    saladBowl.forEach(veggie => veggie.classList.toggle('falling'));
+
+
+}
+
+
+const dropItLikeItsHot = (e)=>{
+    
+    for(let i=0; i<ddMenu.length; i++){
+
+        ddMenu[i].classList.toggle(`dropdown-menu-active${i}`);
+
+    // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
+    
+
+
+    }
+    tossTheSalad();
+
+
+
+}
+
+</script>
+</html>
