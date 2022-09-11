@@ -1,7 +1,9 @@
 
 .menuTaco{
     position: fixed;
-    width: 100px;
+    left: -30px;
+    top: -50px;
+    width: 200px;
     z-index: 1;
 }
 
@@ -59,7 +61,7 @@ animation: tilt-shaking 0.65s infinite;
   .dropdown-menu-active5{
  
     opacity: 1;
-    transform: translateY(200px);
+    transform: translateY(230px);
   }
 
   #taco{
