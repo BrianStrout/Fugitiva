@@ -5,15 +5,28 @@
 
 
 .flyer{
+  display: grid;
+  grid-template-rows: 14% 1fr 10%;
+  grid-template-columns: 75px 1fr;
+  grid-template-areas: 
+  "drop header"
+  "drop display"
+  "footer footer";
   width: 100vw;
   height: 100vh;
 background-color: rgb(140, 212, 229);
-
-
 }
+
+
+.header{
+  grid-area: header;
+  background-color: darkseagreen;
+}
+
+
 .menuTaco{
     position: fixed;
-    left: -30px;
+    left: -40px;
     top: -50px;
     width: 200px;
     z-index: 1;
@@ -28,51 +41,70 @@ animation: tilt-shaking 0.65s infinite;
 }
 
   .dropDown{
+    grid-area: drop;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
 
   }
   .dropdown-menu{
-    position: fixed;
+    height: 7vh;
+    width: 7vh;
+    margin: 1px;
+    /* position: fixed; */
     z-index: 0;
-    left: 30px;
-    top: calc(20% + .25rem);
+    left: 20px;
+    /* top: calc(20% + .25rem); */
     padding: .75rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
-    opacity: .4;
-    transform: translateY(-150px);
+    background-color:  rgb(140, 212, 229);
+    opacity: 1;
+    /* transform: translateY(-150px); */
     transition: opacity 150ms ease-in-out, transform .7s ease-in-out;
   }
   .dropdown-menu:hover{
     background-color: hotpink;
   }
+ .dropdown-menu-inactive{
+  transform: translateY(-500px);
+ }
   
   .dropdown-menu-active0{
-    transition-delay: 1s;
+    transition-delay: 1.5s;
     opacity: 1;
-    transform: translateY(-20px);
+ 
   }
   .dropdown-menu-active1{
-    transition-delay: .75s;
+    transition-delay: 1.25s;
     opacity: 1;
-    transform: translateY(30px);
+
   }
   .dropdown-menu-active2{
-    transition-delay: .5s;
+    transition-delay: 1s;
     opacity: 1;
-    transform: translateY(80px);
+   
   }
   .dropdown-menu-active3{
-    transition-delay: .25s;
+    transition-delay: .75s;
     opacity: 1;
-    transform: translateY(130px);
+   
   }
   .dropdown-menu-active4{
+    transition-delay: .5s;
     opacity: 1;
-    transform: translateY(180px);
+
   }
   .dropdown-menu-active5{
+    transition-delay: .25s;
     opacity: 1;
-    transform: translateY(230px);
+
   }
+  .dropdown-menu-active5{
+
+    opacity: 1;
+  
+}
 
   #taco{
     z-index: 1;
@@ -80,7 +112,7 @@ animation: tilt-shaking 0.65s infinite;
 
   .tomato{
    position: fixed;
-   left: 40px;
+   left: 30px;
    top: 0px;
    z-index: 0;
     max-width: 50px;
@@ -112,6 +144,13 @@ animation: tilt-shaking 0.65s infinite;
     }
     #onion2{
       animation-delay: .75s;
+  }
+
+  .footer{
+    
+    height: 10vh;
+    grid-area: footer;
+    background-color: tomato;
   }
 
     .hidden{
