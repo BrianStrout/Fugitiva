@@ -66,12 +66,10 @@ animation: tilt-shaking 0.65s infinite;
     transform: translateY(130px);
   }
   .dropdown-menu-active4{
- 
     opacity: 1;
     transform: translateY(180px);
   }
   .dropdown-menu-active5{
- 
     opacity: 1;
     transform: translateY(230px);
   }
@@ -109,7 +107,12 @@ animation: tilt-shaking 0.65s infinite;
     #lettuce2{
         animation-delay: 1.2s; 
     }
-
+    #onion{
+        animation-delay: .25s;
+    }
+    #onion2{
+      animation-delay: .75s;
+  }
 
     .hidden{
         opacity: 0;
