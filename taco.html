@@ -9,7 +9,13 @@
 </head>
 <body>
     <div class="container">
+       
         <div class="flyer">
+            <div class="header">
+
+                <h1>La Fugitiva!</h1>
+            </div>
+
             <div class="dropDown"> 
                 <img id="taco" class="menuTaco menuTacoUpright link" src="./taco.png" alt=""></img>
                 <img id="tomato" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
@@ -25,10 +31,11 @@
                 <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden">Tortas</div>
                 <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden">Desserts</div>
             </div>
-            <div class="header">
 
-                Fugitiva!
+            <div class="displayMenu" id="displayMenu">
+
             </div>
+           
             <div class="footer">footer</div>
         </div>
     </div>
@@ -66,6 +73,39 @@ document.addEventListener('click', (e)=>{
         }
     }
 });
+
+
+
+function loadStarter(){
+let displayMenu = document.getElementById('displayMenu');
+let menuLoad = document.createElement('div');
+displayMenu.appendChild(menuLoad);
+console.log("success");
+
+}
+
+// loadSoup(){
+
+// }
+
+// loadCeviches(){
+
+// }
+
+// loadTacos(){
+
+// }
+
+// loadTortas(){
+
+// }
+
+
+// loadDesserts(){
+
+
+// }
+
 
 
 function showMenu(){

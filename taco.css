@@ -21,6 +21,9 @@ background-color: rgb(140, 212, 229);
 .header{
   grid-area: header;
   background-color: darkseagreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -58,7 +61,7 @@ animation: tilt-shaking 0.65s infinite;
     /* top: calc(20% + .25rem); */
     padding: .75rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
-    background-color:  rgb(140, 212, 229);
+    background-color:  rgb(140, 212, 229, .8);
     opacity: 1;
     /* transform: translateY(-150px); */
     transition: opacity 150ms ease-in-out, transform .7s ease-in-out;
@@ -173,11 +176,11 @@ animation: tilt-shaking 0.65s infinite;
   }
   
   @keyframes falling {
-    0% { transform: translatey(0) translateX(0) rotate(0deg);}
-    /* 20% {transform: translatey(76px) translateX(3px) rotate(72deg);}
-    40% {transform: translatey(162px) translateX(-3px) rotate(144deg);}
-    60% {transform: translatey(238px) translateX(3px) rotate(216deg);}
-    80% {transform: translatey(304px) translateX(-3px) rotate(288deg);} */
-   100% { transform: translatey(80vh) translateX(0px) rotate(360deg);}
+    0% { transform: translatey(0) translateX(0) rotate(0deg); opacity: 1;}
+    20% {transform: translatey(16vh) translateX(3px) rotate(72deg);  opacity: 1;}
+    40% {transform: translatey(32vh) translateX(-3px) rotate(144deg); opacity: 1;}
+    60% {transform: translatey(48vh) translateX(3px) rotate(216deg); opacity: .66;}
+    80% {transform: translatey(64vh) translateX(-3px) rotate(288deg); opacity:.33;}
+   100% { transform: translatey(80vh) translateX(0px) rotate(360deg); opacity: 0;}
   }
  
