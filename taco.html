@@ -19,18 +19,18 @@
 
 
                 <img id="taco" class="menuTaco menuTacoUpright link" src="./taco.png" alt=""></img>
-                <img id="tomato" class="tomato" src="./tomato.png" data-fall alt=""></img>
-                <img id="tomato2" class="tomato" src="./tomato.png" data-fall alt=""></img>
-                <img id="lettuce" class="tomato" src="./lettuce.png" data-fall alt=""></img>
-                <img id="lettuce2" class="tomato" src="./lettuce.png" data-fall alt=""></img>
-                <img id="onion" class="tomato" src="./onion.png" data-fall alt=""></img>
-                <img id="onion2" class="tomato" src="./onion.png" data-fall alt=""></img>
-                <div id="ddMenu1" class="dropdown-menu">Starters</div>
-                <div id="ddMenu2" class="dropdown-menu">Soup & Salad</div>
-                <div id="ddMenu3" class="dropdown-menu">Ceviches</div>
-                <div id="ddMenu4" class="dropdown-menu">Tacos</div>
-                <div id="ddMenu5" class="dropdown-menu">Tortas</div>
-                <div id="ddMenu6" class="dropdown-menu">Desserts</div>
+                <img id="tomato" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
+                <img id="tomato2" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
+                <img id="lettuce" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
+                <img id="lettuce2" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
+                <img id="onion" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
+                <img id="onion2" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
+                <div id="ddMenu1" class="dropdown-menu hidden">Starters</div>
+                <div id="ddMenu2" class="dropdown-menu hidden">Soup & Salad</div>
+                <div id="ddMenu3" class="dropdown-menu hidden">Ceviches</div>
+                <div id="ddMenu4" class="dropdown-menu hidden">Tacos</div>
+                <div id="ddMenu5" class="dropdown-menu hidden">Tortas</div>
+                <div id="ddMenu6" class="dropdown-menu hidden">Desserts</div>
             </div>
         </div>
     </div>
@@ -85,6 +85,7 @@ taco.addEventListener('click', (e)=>{
 const tossTheSalad = (e) =>{
 let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('falling'));
+    saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
 
 
 }
@@ -95,6 +96,7 @@ const dropItLikeItsHot = (e)=>{
     for(let i=0; i<ddMenu.length; i++){
 
         ddMenu[i].classList.toggle(`dropdown-menu-active${i}`);
+        ddMenu[i].classList.toggle(`hidden`);
 
     // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
     
