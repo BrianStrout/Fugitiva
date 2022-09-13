@@ -174,10 +174,10 @@ animation: tilt-shaking 0.65s infinite;
   
   @keyframes falling {
     0% { transform: translatey(0) translateX(0) rotate(0deg);}
-    20% {transform: translatey(76px) translateX(3px) rotate(72deg);}
+    /* 20% {transform: translatey(76px) translateX(3px) rotate(72deg);}
     40% {transform: translatey(162px) translateX(-3px) rotate(144deg);}
     60% {transform: translatey(238px) translateX(3px) rotate(216deg);}
-    80% {transform: translatey(304px) translateX(-3px) rotate(288deg);}
-   100% { transform: translatey(380px) translateX(0px) rotate(360deg);}
+    80% {transform: translatey(304px) translateX(-3px) rotate(288deg);} */
+   100% { transform: translatey(80vh) translateX(0px) rotate(360deg);}
   }
  
