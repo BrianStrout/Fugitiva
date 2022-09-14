@@ -46,6 +46,15 @@ let taco = document.getElementById('taco');
 let ddMenu = document.querySelectorAll('.dropdown-menu');
 console.log(ddMenu);
 
+menuArray = ["Totopos chips"];
+submenuArray = [
+    {cat: starters, item: "Fried beans"},
+    {cat: starters, item: "Dip of Choice"},
+    {cat: starters, item: "Guacamole"},
+    {cat: starters, item: "Tequila Cheese Dip",}
+                ]
+
+
 document.addEventListener('click', (e)=>{
 
     if(e.target.classList.contains('dropdown-menu')){
@@ -53,7 +62,7 @@ document.addEventListener('click', (e)=>{
         let lookAt = (e.target.id);
         switch (lookAt){
             case 'ddMenu1':
-                console.log('hit 1');
+                loadStarters();
                 break;
             case 'ddMenu2':
                 console.log('hit2');
@@ -76,7 +85,7 @@ document.addEventListener('click', (e)=>{
 
 
 
-function loadStarter(){
+function loadStarters(){
 let displayMenu = document.getElementById('displayMenu');
 let menuLoad = document.createElement('div');
 displayMenu.appendChild(menuLoad);
