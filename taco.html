@@ -69,13 +69,14 @@ const menuItemTemplate = document.getElementById('menuitemtemplate');
 
 const generateMenuCategories = ()=>{
     for (const item of sheetCat){
-
         let cateGene = document.createElement('div');
         cateGene.classList.add("menuCategory");
-        cateGene.setAttribute('id', `${item.Category}_Menu`);
-        console.log(cateGene.id);
         cateGene.textContent=item.Category;
         displayMenu.appendChild(cateGene);   
+        let cateDesc = document.createElement('div');
+        cateDesc.setAttribute('id', `${item.Category}_Menu`);
+        cateDesc.classList.add("menuDesc");
+        cateGene.appendChild(cateDesc);
     }
 }
 
@@ -84,55 +85,34 @@ const generateMenuCategories = ()=>{
 
 const sortAndPost = ()=>{
     console.log('sort & post');
-//     Starters_Menu
-// taco.html:114 Soups_Menu
-// taco.html:114 Tacos_Menu
-// taco.html:114 Cerviches_Menu
-// taco.html:114 Desserts_Menu
 
-        for (const item of sheetData) {
-            const content = menuItemTemplate.content.cloneNode(true)
-            let targetCategory = 'Starters_Menu';
-            let targtDiv =  document.getElementById(targetCategory);
-                    // console.log(item);
-                // console.log(item.Category);
-                switch (item.Category) {
-                case 'Starters_Menu':
-                    console.log("1 starter")
-                    break;
-                case 'Soups_Menu':
-                    console.log("2 starter")
-                    break;
-                case 'Tacos_Menu':
-                    console.log("2 starter")
-                    break;
-                case 'Cerviches_Menu':
-                    console.log("2 starter")
-                    break;
-                case 'Desserts_Menu':
-                    console.log("2 starter")
-                    break;
-                default:
-                    console.log(",");
+
+    for (const item of sheetData) {
+        let targetCategory = "";
+        const content = menuItemTemplate.content.cloneNode(true);
+            targetCategory = "";
+            console.log(`Attempting to sort ${item.item} in category: ${item.Category}`)
+            // console.log("!" + item.Category);
+
+            if(item.Category !== undefined && item.Category !== "" && item.Category !== " " && item.Category !== null){
+                console.log("sorted!");
+                targetCategory = item.Category;
+            }else{
+                targetCategory = "Desserts_Menu";
                 }
-        
 
-            content.querySelector('h3').textContent = item.item || 'missing name'
-            content.querySelector('p').textContent = item.price || 'missing price'
-            content.querySelector('p').textContent = item.description || 'missing price'
-            // let pushed = document.getElementById('')
-            
-            targtDiv.appendChild(content);
+                console.log(targetCategory);
+                console.log(typeof(targetCategory));
+            let targetDiv =  document.getElementById(targetCategory);
+                content.querySelector('h3').textContent = item.item || 'missing name'
+                content.querySelector('p').textContent = item.price || 'missing price'
+                content.querySelector('p').textContent = item.description || 'missing price'
+                targetDiv.appendChild(content);
         }
 }
 
-
 const menuSwitcher = ()=>{
 }
-
-
-
-
 
 let taco = document.getElementById('taco');
 let ddMenu = document.querySelectorAll('.dropdown-menu');
@@ -181,15 +161,15 @@ let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
 }
 const dropItLikeItsHot = (e)=>{
-    console.log("dropping");
-    console.log(ddMenu.length)
+    // console.log("dropping");
+    // console.log(ddMenu.length)
     for(let i=0; i<ddMenu.length; i++){
-        console.log(i);
-        console.log(ddMenu[i].classList);
+        // console.log(i);
+        // console.log(ddMenu[i].classList);
         ddMenu[i].classList.toggle(`dropdown-menu-active${i}`);
         ddMenu[i].classList.toggle(`dropdown-menu-inactive`);
         ddMenu[i].classList.toggle(`hidden`);
-        console.log(ddMenu[i].classList);
+        // console.log(ddMenu[i].classList);
     // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
     }
     // console.log(displayMenu);

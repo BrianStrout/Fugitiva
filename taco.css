@@ -1,8 +1,12 @@
+:root {
+  --bgmain: rgb(140, 212, 229);
+  --white: #ffffff;
+}
+
 *{
   margin: 0;
   padding: 0;
 }
-
 
 .flyer{
   display: grid;
@@ -148,6 +152,18 @@ animation: tilt-shaking 0.65s infinite;
     #onion2{
       animation-delay: .75s;
   }
+
+.displayMenu{
+  padding: 1rem;
+  overflow: scroll;
+}
+.menuCategory{
+  background-color: crimson;
+}
+.menuDesc{
+  background-color: var(--bgmain);
+  padding: 1rem;
+}
 
   .footer{
     
