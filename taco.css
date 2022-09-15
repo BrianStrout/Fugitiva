@@ -1,6 +1,7 @@
 :root {
   --bgmain: rgb(140, 212, 229);
   --white: #ffffff;
+  --footer: 5vh;
 }
 
 *{
@@ -10,7 +11,7 @@
 
 .flyer{
   display: grid;
-  grid-template-rows: 14% 1fr 10%;
+  grid-template-rows: 14% 1fr var(--footer);
   grid-template-columns: 75px 1fr;
   grid-template-areas: 
   "drop header"
@@ -153,12 +154,21 @@ animation: tilt-shaking 0.65s infinite;
       animation-delay: .75s;
   }
 
+
+.homeDisplay{
+  background-color: var(--bgmain);
+  position: fixed;
+  z-index: 1;
+
+}
+
 .displayMenu{
   padding: 1rem;
   overflow: scroll;
 }
 .menuCategory{
   background-color: crimson;
+  /* height: 10vh; */
 }
 .menuDesc{
   background-color: var(--bgmain);
@@ -167,7 +177,7 @@ animation: tilt-shaking 0.65s infinite;
 
   .footer{
     
-    height: 10vh;
+    height: var(--footer);
     grid-area: footer;
     background-color: tomato;
   }

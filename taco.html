@@ -24,15 +24,36 @@
                 <img id="lettuce2" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
                 <img id="onion" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
                 <img id="onion2" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
-                <div id="ddMenu1" class="dropdown-menu dropdown-menu-inactive hidden">Starters</div>
-                <div id="ddMenu2" class="dropdown-menu dropdown-menu-inactive hidden">Soup & Salad</div>
-                <div id="ddMenu3" class="dropdown-menu dropdown-menu-inactive hidden">Ceviches</div>
-                <div id="ddMenu4" class="dropdown-menu dropdown-menu-inactive hidden">Tacos</div>
-                <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden">Tortas</div>
-                <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden">Desserts</div>
+                <div id="ddMenu1" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Starters">Starters</a></div>
+                <div id="ddMenu2" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Soups">Soup & Salad</a></div>
+                <div id="ddMenu3" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Ceviches">Ceviches</a></div>
+                <div id="ddMenu4" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Tacos">Tacos</a></div>
+                <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Tortas">Tortas</a></div>
+                <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Desserts">Desserts</a></div>
+                <div id="ddMenu7" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Drinks">Drinks</a></div>
             </div>
 
             <div class="displayMenu" id="displayMenu">
+                <div class="homeDisplay">
+                    SLIDER HERE! <br>
+
+                    Hours
+
+                    social
+
+                    
+                    Address: Rua de S. Paulo 186, 1200-249 Lisboa
+Hours: 
+Thursday	12–3PM, 6PM–12AM
+Friday	12:30–3PM, 6PM–2AM
+Saturday	12PM–1AM
+Sunday	Closed
+Monday	6PM–12AM
+Tuesday	12–3PM, 6PM–12AM
+Wednesday	12–3PM, 6PM–12AM
+                    
+                    
+                    </div>
                 <template id="menuitemtemplate">
                     <div class="menuitem" id="menuhere">
                         <h3>name</h3>
@@ -65,18 +86,24 @@ const sheetData = await getSheet(menuItemsSheet);
 const sheetCat = await getSheet(menuCatSheet);
 const menuhere = document.getElementById('menuhere');
 const menuItemTemplate = document.getElementById('menuitemtemplate');
+let dispShown = "home";
 
 
 const generateMenuCategories = ()=>{
     for (const item of sheetCat){
         let cateGene = document.createElement('div');
         cateGene.classList.add("menuCategory");
-        cateGene.textContent=item.Category;
         displayMenu.appendChild(cateGene);   
+
+        let cateTitle = document.createElement('div');
+        cateTitle.innerHTML=`<a name="${item.Category}">${item.Category}</a>`
+        cateGene.appendChild(cateTitle);
+
         let cateDesc = document.createElement('div');
         cateDesc.setAttribute('id', `${item.Category}_Menu`);
         cateDesc.classList.add("menuDesc");
         cateGene.appendChild(cateDesc);
+
     }
 }
 
@@ -84,25 +111,19 @@ const generateMenuCategories = ()=>{
 
 
 const sortAndPost = ()=>{
-    console.log('sort & post');
+
 
 
     for (const item of sheetData) {
         let targetCategory = "";
         const content = menuItemTemplate.content.cloneNode(true);
             targetCategory = "";
-            console.log(`Attempting to sort ${item.item} in category: ${item.Category}`)
-            // console.log("!" + item.Category);
 
             if(item.Category !== undefined && item.Category !== "" && item.Category !== " " && item.Category !== null){
-                console.log("sorted!");
                 targetCategory = item.Category;
             }else{
                 targetCategory = "Desserts_Menu";
                 }
-
-                console.log(targetCategory);
-                console.log(typeof(targetCategory));
             let targetDiv =  document.getElementById(targetCategory);
                 content.querySelector('h3').textContent = item.item || 'missing name'
                 content.querySelector('p').textContent = item.price || 'missing price'
@@ -110,6 +131,13 @@ const sortAndPost = ()=>{
                 targetDiv.appendChild(content);
         }
 }
+
+const clearDisp=()=>{
+
+    // displayMenu.innerHTML='<template id="menuitemtemplate"><div class="menuitem" id="menuhere"><h3>name</h3><p>0$</p></div></template>';
+
+}
+
 
 const menuSwitcher = ()=>{
 }
@@ -153,6 +181,7 @@ taco.addEventListener('click', (e)=>{
     taco.classList.toggle('menuTacoUpright');
     taco.classList.toggle('menuTacoTilt');
     dropItLikeItsHot();
+    menuSwitcher();
   
 } );
 const tossTheSalad = (e) =>{
