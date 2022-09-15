@@ -32,10 +32,6 @@
                 <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden">Desserts</div>
             </div>
 
-
-
-
-
             <div class="displayMenu" id="displayMenu">
                 <template id="menuitemtemplate">
                     <div class="menuitem" id="menuhere">
@@ -54,8 +50,32 @@
 
 <script type="module">
 import { getSheet } from './google-master-sheet-hacker.js'
-   
+
+let displayMenu = document.getElementById('displayMenu');
+let menuLoad = document.createElement('div');
+const sheetDefinition = {
+        id: '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0',
+        page: 1,
+    }
+const sheetData = await getSheet(sheetDefinition);
+const menuhere = document.getElementById('menuhere');
+const menuItemTemplate = document.getElementById('menuitemtemplate');
+
+const sortAndPost = ()=>{
+    console.log('sort & post');
+        // sheetData();
+        for (const item of sheetData) {
+            const content = menuItemTemplate.content.cloneNode(true)
+            content.querySelector('h3').textContent = item.item || 'missing name'
+            content.querySelector('p').textContent = item.price || 'missing price'
+            content.querySelector('p').textContent = item.description || 'missing price'
+            // let pushed = document.getElementById('')
+            displayMenu.appendChild(content);
+        }
+}
+
 // async function getSheet(def){
+//     console.log("!");
 //     let calledId = '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0';
 //     let calledPage = 1;
 //     let assembled =`https://opensheet.elk.sh/${calledId}/${calledPage}`;
@@ -64,24 +84,8 @@ import { getSheet } from './google-master-sheet-hacker.js'
 //     return res.json();
 // }
 
-    const menuItemTemplate = document.getElementById('menuitemtemplate');
-    const sheetDefinition = {
-        id: '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0',
-        page: 1,
-    }
 
-const sheetData = await getSheet(sheetDefinition);
-const menuhere = document.getElementById('menuhere');
 
-    for (const item of sheetData) {
-        const content = menuItemTemplate.content.cloneNode(true)
-        content.querySelector('h3').textContent = item.item || 'missing name'
-        content.querySelector('p').textContent = item.price || 'missing price'
-        content.querySelector('p').textContent = item.description || 'missing price'
-        // let pushed = document.getElementById('')
-        displayMenu.appendChild(content);
-
-    }
 
 let taco = document.getElementById('taco');
 let ddMenu = document.querySelectorAll('.dropdown-menu');
@@ -93,7 +97,9 @@ document.addEventListener('click', (e)=>{
         let lookAt = (e.target.id);
         switch (lookAt){
             case 'ddMenu1':
+                console.log("dd1");
                 loadStarters();
+                
                 break;
             case 'ddMenu2':
                 console.log('hit2');
@@ -115,16 +121,14 @@ document.addEventListener('click', (e)=>{
 });
 
 function loadStarters(){
-let displayMenu = document.getElementById('displayMenu');
-let menuLoad = document.createElement('div');
+
+
+
+
 displayMenu.appendChild(menuLoad);
 console.log("success");
 }
 
-
-function showMenu(){
-    console.log("woo!");
-}
 
 taco.addEventListener('click', (e)=>{
     taco.classList.toggle('menuTacoUpright');
@@ -132,15 +136,11 @@ taco.addEventListener('click', (e)=>{
     dropItLikeItsHot();
   
 } );
-
-
 const tossTheSalad = (e) =>{
 let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('falling'));
     saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
 }
-
-
 const dropItLikeItsHot = (e)=>{
     for(let i=0; i<ddMenu.length; i++){
 
@@ -150,6 +150,7 @@ const dropItLikeItsHot = (e)=>{
     // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
     }
     tossTheSalad();
+    sortAndPost();
 }
 
 </script>
