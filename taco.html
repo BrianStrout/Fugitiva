@@ -53,36 +53,83 @@ import { getSheet } from './google-master-sheet-hacker.js'
 
 let displayMenu = document.getElementById('displayMenu');
 let menuLoad = document.createElement('div');
-const sheetDefinition = {
+const menuCatSheet = {
+        id: '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0',
+        page: "Cat",
+    }
+const menuItemsSheet = {
         id: '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0',
         page: 1,
     }
-const sheetData = await getSheet(sheetDefinition);
+const sheetData = await getSheet(menuItemsSheet);
+const sheetCat = await getSheet(menuCatSheet);
 const menuhere = document.getElementById('menuhere');
 const menuItemTemplate = document.getElementById('menuitemtemplate');
 
+
+const generateMenuCategories = ()=>{
+    for (const item of sheetCat){
+
+        let cateGene = document.createElement('div');
+        cateGene.classList.add("menuCategory");
+        cateGene.setAttribute('id', `${item.Category}_Menu`);
+        console.log(cateGene.id);
+        cateGene.textContent=item.Category;
+        displayMenu.appendChild(cateGene);   
+    }
+}
+
+
+
+
 const sortAndPost = ()=>{
     console.log('sort & post');
-        // sheetData();
+//     Starters_Menu
+// taco.html:114 Soups_Menu
+// taco.html:114 Tacos_Menu
+// taco.html:114 Cerviches_Menu
+// taco.html:114 Desserts_Menu
+
         for (const item of sheetData) {
             const content = menuItemTemplate.content.cloneNode(true)
+            let targetCategory = 'Starters_Menu';
+            let targtDiv =  document.getElementById(targetCategory);
+                    // console.log(item);
+                // console.log(item.Category);
+                switch (item.Category) {
+                case 'Starters_Menu':
+                    console.log("1 starter")
+                    break;
+                case 'Soups_Menu':
+                    console.log("2 starter")
+                    break;
+                case 'Tacos_Menu':
+                    console.log("2 starter")
+                    break;
+                case 'Cerviches_Menu':
+                    console.log("2 starter")
+                    break;
+                case 'Desserts_Menu':
+                    console.log("2 starter")
+                    break;
+                default:
+                    console.log(",");
+                }
+        
+
             content.querySelector('h3').textContent = item.item || 'missing name'
             content.querySelector('p').textContent = item.price || 'missing price'
             content.querySelector('p').textContent = item.description || 'missing price'
             // let pushed = document.getElementById('')
-            displayMenu.appendChild(content);
+            
+            targtDiv.appendChild(content);
         }
 }
 
-// async function getSheet(def){
-//     console.log("!");
-//     let calledId = '1AWYa-kNuQiHusJNGVWkbxwhcHVnTcN3QFNU6gjqeWJ0';
-//     let calledPage = 1;
-//     let assembled =`https://opensheet.elk.sh/${calledId}/${calledPage}`;
-//     // console.log(assembled);
-//     let res = await fetch(assembled);
-//     return res.json();
-// }
+
+const menuSwitcher = ()=>{
+}
+
 
 
 
@@ -119,15 +166,7 @@ document.addEventListener('click', (e)=>{
         }
     }
 });
-
-function loadStarters(){
-
-
-
-
-displayMenu.appendChild(menuLoad);
-console.log("success");
-}
+  
 
 
 taco.addEventListener('click', (e)=>{
@@ -142,14 +181,20 @@ let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
 }
 const dropItLikeItsHot = (e)=>{
+    console.log("dropping");
+    console.log(ddMenu.length)
     for(let i=0; i<ddMenu.length; i++){
-
+        console.log(i);
+        console.log(ddMenu[i].classList);
         ddMenu[i].classList.toggle(`dropdown-menu-active${i}`);
         ddMenu[i].classList.toggle(`dropdown-menu-inactive`);
         ddMenu[i].classList.toggle(`hidden`);
+        console.log(ddMenu[i].classList);
     // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
     }
+    // console.log(displayMenu);
     tossTheSalad();
+    generateMenuCategories();
     sortAndPost();
 }
 
