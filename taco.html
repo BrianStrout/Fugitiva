@@ -34,14 +34,14 @@
             </div>
 
             <div class="displayMenu" id="displayMenu">
-                <div class="homeDisplay">
+                <div class="homeDisplay" id="landingPage">
                     SLIDER HERE! <br>
 
                     Hours
 
                     social
 
-                    
+
                     Address: Rua de S. Paulo 186, 1200-249 Lisboa
 Hours: 
 Thursday	12–3PM, 6PM–12AM
@@ -56,8 +56,11 @@ Wednesday	12–3PM, 6PM–12AM
                     </div>
                 <template id="menuitemtemplate">
                     <div class="menuitem" id="menuhere">
-                        <h3>name</h3>
-                        <p>0$</p>
+                        <!-- <h3>name</h3> -->
+                        <span class="temp_item"></span>
+                        <span class="temp_plate"></span>
+                        <span class="temp_price"></span>
+                        
                     </div>
                 </template>
             </div>
@@ -70,7 +73,7 @@ Wednesday	12–3PM, 6PM–12AM
 
 
 <script type="module">
-import { getSheet } from './google-master-sheet-hacker.js'
+import { getSheet } from './google-master-sheet-hacker.js';
 
 let displayMenu = document.getElementById('displayMenu');
 let menuLoad = document.createElement('div');
@@ -87,6 +90,7 @@ const sheetCat = await getSheet(menuCatSheet);
 const menuhere = document.getElementById('menuhere');
 const menuItemTemplate = document.getElementById('menuitemtemplate');
 let dispShown = "home";
+const landingPage = document.getElementById('landingPage');
 
 
 const generateMenuCategories = ()=>{
@@ -125,9 +129,9 @@ const sortAndPost = ()=>{
                 targetCategory = "Desserts_Menu";
                 }
             let targetDiv =  document.getElementById(targetCategory);
-                content.querySelector('h3').textContent = item.item || 'missing name'
-                content.querySelector('p').textContent = item.price || 'missing price'
-                content.querySelector('p').textContent = item.description || 'missing price'
+                content.querySelector('span.temp_item').textContent = item.item || 'missing name'
+                content.querySelector('span.temp_price').textContent = item.price || 'missing price'
+                content.querySelector('span.temp_plate').textContent = item.description || 'missing desc.'
                 targetDiv.appendChild(content);
         }
 }
@@ -180,6 +184,8 @@ document.addEventListener('click', (e)=>{
 taco.addEventListener('click', (e)=>{
     taco.classList.toggle('menuTacoUpright');
     taco.classList.toggle('menuTacoTilt');
+    landingPage.classList.toggle('hidden');
+
     dropItLikeItsHot();
     menuSwitcher();
   
@@ -190,7 +196,7 @@ let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
 }
 const dropItLikeItsHot = (e)=>{
-    // console.log("dropping");
+    console.log("dropping");
     // console.log(ddMenu.length)
     for(let i=0; i<ddMenu.length; i++){
         // console.log(i);
