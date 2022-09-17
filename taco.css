@@ -56,6 +56,14 @@ animation: tilt-shaking 0.65s infinite;
     gap: 1rem;
 
   }
+
+  .dropDown>a{
+    text-decoration: none;
+  }
+
+
+
+
   .dropdown-menu{
     height: 7vh;
     width: 7vh;
@@ -157,18 +165,44 @@ animation: tilt-shaking 0.65s infinite;
 
 .homeDisplay{
   background-color: var(--bgmain);
-  position: fixed;
-  z-index: 1;
-
+  position: fixed;  
+  z-index: 2;
+  flex-grow: 1;
+  min-height: 100%;
+   
 }
 
 .displayMenu{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   padding: 1rem;
   overflow: scroll;
 }
+
+.menuItem{
+  background-color: rgba(0, 0, 255, 0.295);
+  margin: .25rem;
+}
+.temp_item{
+font-size: 1.25rem;
+text-decoration: underline;
+}
+
+
+.temp_price{
+  float: right;
+  font-style: italic;
+}
+
+.temp_plate{
+  margin-top: .5rem;
+}
+
+
+
 .menuCategory{
   background-color: crimson;
-  /* height: 10vh; */
 }
 .menuDesc{
   background-color: var(--bgmain);
@@ -176,10 +210,13 @@ animation: tilt-shaking 0.65s infinite;
 }
 
   .footer{
-    
     height: var(--footer);
     grid-area: footer;
     background-color: tomato;
+    /* position: fixed; */
+    bottom: 0;
+    z-index: 1;
+
   }
 
     .hidden{
