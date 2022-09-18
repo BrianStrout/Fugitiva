@@ -35,7 +35,19 @@
 
             <div class="displayMenu" id="displayMenu">
                 <div class="homeDisplay" id="landingPage">
-                    SLIDER HERE! <br>
+                    <div class="images-slideshow">
+                        <div class="imageSlides fade">
+                            <img src="src/images/img1.png">
+                        </div>
+                        <div class="imageSlides fade">
+                            <img src="src/images/img2.png">
+                        </div>
+                        <div class="imageSlides fade">
+                            <img src="src/images/img3.png">
+                        </div>
+                        <!-- <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+                        <a class="slider-btn next" onclick="setSlides(1)">❯</a> -->
+                </div><br>
 
                     Hours
 
@@ -114,9 +126,6 @@ const generateMenuCategories = ()=>{
     }
 }
 
-
-
-
 const sortAndPost = ()=>{
 
 
@@ -182,8 +191,6 @@ document.addEventListener('click', (e)=>{
     }
 });
   
-
-
 taco.addEventListener('click', (e)=>{
     taco.classList.toggle('menuTacoUpright');
     taco.classList.toggle('menuTacoTilt');
@@ -215,6 +222,52 @@ const dropItLikeItsHot = (e)=>{
     generateMenuCategories();
     sortAndPost();
 }
+
+
+
+//slider apps
+
+let currentSlideIndex = 1;
+
+function setSlides(num) {
+    displaySlides(currentSlideIndex += num);
+}
+
+function displaySlides(num) {
+    let slides = document.getElementsByClassName("imageSlides");
+    let x;
+    if (num > slides.length) { currentSlideIndex = 1 }
+    if (num < 1) { currentSlideIndex = slides.length }
+    for (x = 0; x < slides.length; x++) {
+        slides[x].style.display = "none";
+    }
+    slides[currentSlideIndex - 1].style.display = "block";
+}
+
+const timeCop = ()=> {
+    console.log("time cop called!")
+        const  timer = setInterval(function() {
+                setSlides(1);
+            }, 2500);}
+
+
+
+function myStopFunction() {
+  clearInterval(myInterval);
+}
+
+setSlides(0);
+timeCop();
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </html>
