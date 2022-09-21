@@ -45,8 +45,6 @@
                         <div class="imageSlides fade">
                             <img src="src/images/img3.png">
                         </div>
-                        <!-- <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
-                        <a class="slider-btn next" onclick="setSlides(1)">❯</a> -->
                 </div><br>
 <div class="hours">
     Mon 6PM–12AM~Tues	12–3PM, 6PM–12AM~Wed 12–3PM, 6PM–12AM
@@ -105,6 +103,7 @@ const generateMenuCategories = ()=>{
         displayMenu.appendChild(cateGene);   
 
         let cateTitle = document.createElement('div');
+        cateTitle.classList.add("categoryTitle");
         cateTitle.innerHTML=`<a name="${item.Category}">${item.Category}</a>`
         cateGene.appendChild(cateTitle);
 

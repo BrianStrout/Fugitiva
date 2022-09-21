@@ -196,7 +196,7 @@ animation: tilt-shaking 0.65s infinite;
 
 .homeDisplay{
   background-color: var(--bgmain);
-  position: fixed;  
+  position:fixed;  
   z-index: 2;
   flex-grow: 1;
   min-height: 100%;
@@ -235,6 +235,7 @@ text-decoration: underline;
 .menuCategory{
   background-color: crimson;
 }
+
 .menuDesc{
   background-color: var(--bgmain);
   padding: 1rem;
