@@ -197,6 +197,7 @@ animation: tilt-shaking 0.65s infinite;
 .homeDisplay{
   background-color: var(--bgmain);
   position:fixed;  
+  /* top:0; */
   z-index: 2;
   flex-grow: 1;
   min-height: 100%;
@@ -207,13 +208,14 @@ animation: tilt-shaking 0.65s infinite;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 1rem;
+  padding: 0 1rem;
   overflow: scroll;
 }
 
 .menuItem{
-  background-color: rgba(0, 0, 255, 0.295);
+  background-color: rgba(182, 237, 250, 0.3);
   margin: .25rem;
+  padding: .5rem;
 }
 .temp_item{
 font-size: 1.25rem;
