@@ -117,13 +117,15 @@ const generateMenuCategories = ()=>{
 
 const sortAndPost = ()=>{
 
-
-
     for (const item of sheetData) {
+        console.log(item.item);
         let targetCategory = "";
+
+
+
+            
         const content = menuItemTemplate.content.cloneNode(true);
             targetCategory = "";
-
             if(item.Category !== undefined && item.Category !== "" && item.Category !== " " && item.Category !== null){
                 targetCategory = item.Category;
             }else{
@@ -132,7 +134,7 @@ const sortAndPost = ()=>{
             let targetDiv =  document.getElementById(targetCategory);
                 content.querySelector('span.temp_item').textContent = item.item || 'missing name'
                 content.querySelector('span.temp_price').textContent = item.price || 'missing price'
-                content.querySelector('span.temp_plate').textContent = item.description || 'missing desc.'
+                content.querySelector('span.temp_plate').textContent = item.description
                 targetDiv.appendChild(content);
         }
 }
@@ -260,3 +262,6 @@ timeCop();
 
 </script>
 </html>
+
+
+

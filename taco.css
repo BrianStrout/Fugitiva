@@ -22,30 +22,26 @@
 background-color: rgb(140, 212, 229);
 }
 
-
 .header{
-  grid-area: header;
-  background-color: darkseagreen;
+  grid-area: header;    
+  /* background-color: darkseagreen; */
+  background-color: var(--bgmain);
   display: flex;
   justify-content: center;
   align-items: center;
 }
                                             /* SLIDER */
- 
                                             img {
                                               margin: auto;
                                               display: block;
                                               width: 100%;
                                             }
-                                             
                                             /* Our main images-slideshow container */
                                             .images-slideshow {
                                               max-width: 90%;
-                                              
                                               position: relative;
-                                              margin: auto;
+                                              margin: 0;
                                             }
-
                                             /* setting the position of the previous button towards left */
                                             .previous {
                                               left: 2%;
@@ -54,7 +50,6 @@ background-color: rgb(140, 212, 229);
                                             .next {
                                               right: 2%;
                                             }
-                                             
                                             /* On hover, adding a background color */
                                             .previous:hover,
                                             .next:hover {
@@ -64,9 +59,9 @@ background-color: rgb(140, 212, 229);
 
 .menuTaco{
     position: fixed;
-    left: -40px;
-    top: -50px;
-    width: 200px;
+    left: 0px;
+    top: 0px;
+    width: 100px;
     z-index: 1;
 }
 
@@ -84,16 +79,12 @@ animation: tilt-shaking 0.65s infinite;
     flex-direction: column;
     justify-content: flex-end;
     gap: 1rem;
-
   }
 
   .dropdown-menu>a{
     color: black;
     text-decoration: none;
   }
-
-
-
 
   .dropdown-menu{
     height: 7vh;
@@ -158,16 +149,13 @@ animation: tilt-shaking 0.65s infinite;
   }
 
   .tomato{
-   position: fixed;
-   left: 30px;
-   top: 0px;
-   z-index: 0;
-    max-width: 50px;
-
+  position: fixed;
+  left: 20px;
+  top: 10px;
+  z-index: 0;
+  max-width: 50px;
+  transition: opacity 5s ease-in;
   }
-
-
-
 
   .falling{
     animation: falling;
@@ -182,7 +170,6 @@ animation: tilt-shaking 0.65s infinite;
     #lettuce{
         animation-delay: .5s; 
     }
-
     #lettuce2{
         animation-delay: 1.25s; 
     }
@@ -208,7 +195,7 @@ animation: tilt-shaking 0.65s infinite;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 0 1rem;
+  padding: 0 .5rem;
   overflow: scroll;
 }
 
@@ -237,6 +224,15 @@ text-decoration: underline;
 .menuCategory{
   background-color: crimson;
 }
+.categoryTitle{
+  background-color: blueviolet;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  
+}
 
 .menuDesc{
   background-color: var(--bgmain);
@@ -261,6 +257,7 @@ text-decoration: underline;
 
     .hidden{
         opacity: 0;
+        pointer-events: none;
     }
 
   @keyframes tilt-shaking {
