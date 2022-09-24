@@ -76,6 +76,12 @@
 
 
 <script type="module">
+
+let loaded = false;
+
+
+
+
 import { getSheet } from './google-master-sheet-hacker.js';
 
 let displayMenu = document.getElementById('displayMenu');
@@ -102,10 +108,29 @@ const generateMenuCategories = ()=>{
         cateGene.classList.add("menuCategory");
         displayMenu.appendChild(cateGene);   
 
+        let ribbon = new Image(); 
+        ribbon.src = "src/images/ribbon.png";
+        ribbon.classList.add('ribbon');
+       cateGene.appendChild(ribbon);   
+            // document.getElementById('body').appendChild(ribbon);
+            // down.innerHTML = "Image Element Added."; 
+
+
+
+
+
+
+
         let cateTitle = document.createElement('div');
         cateTitle.classList.add("categoryTitle");
         cateTitle.innerHTML=`<a name="${item.Category}">${item.Category}</a>`
         cateGene.appendChild(cateTitle);
+
+        let ribbonBot = new Image(); 
+        ribbonBot.src = "src/images/ribbon.png";
+        ribbonBot.classList.add('ribbon');
+       cateGene.appendChild(ribbonBot);  
+
 
         let cateDesc = document.createElement('div');
         cateDesc.setAttribute('id', `${item.Category}_Menu`);
@@ -118,7 +143,7 @@ const generateMenuCategories = ()=>{
 const sortAndPost = ()=>{
 
     for (const item of sheetData) {
-        console.log(item.item);
+        // console.log(item.item);
         let targetCategory = "";
 
 
@@ -131,6 +156,8 @@ const sortAndPost = ()=>{
             }else{
                 targetCategory = "Desserts_Menu";
                 }
+            console.log(item.Category, "logged");
+
             let targetDiv =  document.getElementById(targetCategory);
                 content.querySelector('span.temp_item').textContent = item.item || 'missing name'
                 content.querySelector('span.temp_price').textContent = item.price || 'missing price'
@@ -210,8 +237,11 @@ const dropItLikeItsHot = (e)=>{
     }
     // console.log(displayMenu);
     tossTheSalad();
-    generateMenuCategories();
-    sortAndPost();
+    if(loaded === false){
+            generateMenuCategories();
+            sortAndPost();
+            loaded = true;
+    }
 }
 
 
