@@ -24,13 +24,13 @@
                 <img id="lettuce2" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
                 <img id="onion" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
                 <img id="onion2" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
-                <div id="ddMenu1" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Starters">Starters</a></div>
-                <div id="ddMenu2" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Soups">Soup & Salad</a></div>
-                <div id="ddMenu3" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Ceviches">Ceviches</a></div>
-                <div id="ddMenu4" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Tacos">Tacos</a></div>
-                <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Tortas">Tortas</a></div>
-                <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Desserts">Desserts</a></div>
-                <div id="ddMenu7" class="dropdown-menu dropdown-menu-inactive hidden"><a href="#Drinks">Drinks</a></div>
+                <div id="ddMenu1" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Starters';" >Starters</div>
+                <div id="ddMenu2" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Soups';" >Soup & Salad</div>
+                <div id="ddMenu3" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Ceviches';" >Ceviches</div>
+                <div id="ddMenu4" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Tacos';" >Tacos</div>
+                <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Tortas';" >Tortas</div>
+                <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Desserts';" >Desserts</div>
+                <div id="ddMenu7" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Drinks';" >Drinks</div>
             </div>
 
             <div class="displayMenu" id="displayMenu">
@@ -166,12 +166,6 @@ const sortAndPost = ()=>{
         }
 }
 
-const clearDisp=()=>{
-
-    // displayMenu.innerHTML='<template id="menuitemtemplate"><div class="menuitem" id="menuhere"><h3>name</h3><p>0$</p></div></template>';
-
-}
-
 
 const menuSwitcher = ()=>{
 }
@@ -181,32 +175,36 @@ let ddMenu = document.querySelectorAll('.dropdown-menu');
 
 document.addEventListener('click', (e)=>{
 
-    if(e.target.classList.contains('dropdown-menu')){
-        
-        let lookAt = (e.target.id);
-        switch (lookAt){
-            case 'ddMenu1':
-                console.log("dd1");
-                loadStarters();
-                
-                break;
-            case 'ddMenu2':
-                console.log('hit2');
-                break;
-            case 'ddMenu3':
-                console.log('hit3');
-                break;
-            case 'ddMenu4':
-                console.log('hit4');
-                break;
-            case 'ddMenu5':
-                console.log('hit5');
-                break;
+        if(e.target.classList.contains('dropdown-menu')){
+            
+            let lookAt = (e.target.id);
+            switch (lookAt){
+                case 'ddMenu1':
+                    console.log("dd1");
+                    // <a href="#Starters"></a>
+                    // loadStarters();
+                    
+                    break;
+                case 'ddMenu2':
+                    console.log('hit2');
+                    break;
+                case 'ddMenu3':
+                    console.log('hit3');
+                    break;
+                case 'ddMenu4':
+                    console.log('hit4');
+                    break;
+                case 'ddMenu5':
+                    console.log('hit5');
+                    break;
                 case 'ddMenu6':
-                console.log('hit6');
-                break;
+                    console.log('hit6');
+                    break;
+                case 'ddMenu7':
+                    console.log('hit7');
+                    break;
+            }
         }
-    }
 });
   
 taco.addEventListener('click', (e)=>{
