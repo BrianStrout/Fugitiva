@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+
+
 .flyer{
   display: grid;
   grid-template-rows: 14% 1fr var(--footer);
@@ -191,6 +193,29 @@ animation: tilt-shaking 0.65s infinite;
    
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48,
+  
+  /* font-size: 50px; */
+
+
+}
+
+#hours{
+/* text-size-adjust: 2; */
+  font-size: 10rem;
+}
+
+
+.landIcon{
+  
+  font-size: large;
+}
+
 .displayMenu{
   display: flex;
   flex-direction: column;
@@ -224,8 +249,17 @@ text-decoration: underline;
 .menuCategory{
   /* background-color: crimson; */
 }
+
+
+.ribbon{
+  /* position: absolute;
+  clip: rect(0px,10%,0px,0px); */
+
+}
+
 .categoryTitle{
   background-color: rgba(255, 255, 255, 0.105);
+  /* box-shadow: 2px 2px 5px rgba(255, 254, 254, 0.22); */
   height: 3rem;
   display: flex;
   justify-content: center;
