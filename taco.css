@@ -59,11 +59,17 @@ background-color: rgb(140, 212, 229);
                                               background-color: rgba(0, 0, 0, 0.8);
                                             }
 
+
+#logo{
+  max-width: 80%;
+  /* opacity: 50%; */
+}
+
 .menuTaco{
     position: fixed;
     left: 0px;
-    top: 0px;
-    width: 100px;
+    top: -5px;
+    width: 130px;
     z-index: 1;
 }
 
@@ -190,6 +196,12 @@ animation: tilt-shaking 0.65s infinite;
   z-index: 2;
   flex-grow: 1;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-content: center;
+  align-content: center; */
+  align-items: center;
    
 }
 
