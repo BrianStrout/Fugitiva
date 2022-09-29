@@ -173,7 +173,9 @@ const sortAndPost = ()=>{
         }
 }
 
-
+const popUp =(e) =>{
+    console.log(e.target.id);
+}
 const menuSwitcher = ()=>{
 }
 
@@ -212,6 +214,18 @@ document.addEventListener('click', (e)=>{
                     break;
             }
         }
+
+        if(e.target.id === "hours"){
+            popUp(e);
+        }
+        if(e.target.id === "social"){
+            var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
+            window.open('https://www.instagram.com/lafugitivatacobar' , "_blank", strWindowFeatures);
+        }
+        if(e.target.id === "location"){
+            popUp(e);
+        }
+
 });
   
 taco.addEventListener('click', (e)=>{
