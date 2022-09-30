@@ -14,7 +14,7 @@
 .flyer{
   display: grid;
   grid-template-rows: 14% 1fr var(--footer);
-  grid-template-columns: 75px 1fr;
+  grid-template-columns: 35% 1fr;
   grid-template-areas: 
   "drop header"
   "drop display"
@@ -31,6 +31,8 @@ background-color: rgb(140, 212, 229);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: .5rem;
+  margin: .25rem;
 }
                                             /* SLIDER */
                                             img {
@@ -69,7 +71,9 @@ background-color: rgb(140, 212, 229);
     position: fixed;
     left: 0px;
     top: -5px;
-    width: 130px;
+    /* width: 130px; */
+    /* width: 8.125rem; */
+    width: 30vw;
     z-index: 1;
 }
 
