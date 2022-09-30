@@ -18,7 +18,7 @@
             </div>
 
             <div class="dropDown"> 
-                <img id="taco" class="menuTaco menuTacoUpright link" src="./taco.png" alt=""></img>
+                <img id="taco" class="menu-taco menu-taco-upright link" src="./taco.png" alt=""></img>
                 <img id="tomato" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
                 <img id="tomato2" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
                 <img id="lettuce" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
@@ -164,7 +164,7 @@ const sortAndPost = ()=>{
                 targetCategory = "Desserts_Menu";
                 }
             console.log(item.Category, "logged");
-
+                // if(item.sub === "TRUE")item.classList.add("submenu");
             let targetDiv =  document.getElementById(targetCategory);
                 content.querySelector('span.temp_item').textContent = item.item || 'missing name'
                 content.querySelector('span.temp_price').textContent = item.price || 'missing price'
@@ -184,36 +184,36 @@ let ddMenu = document.querySelectorAll('.dropdown-menu');
 
 document.addEventListener('click', (e)=>{
 
-        if(e.target.classList.contains('dropdown-menu')){
+        // if(e.target.classList.contains('dropdown-menu')){
             
-            let lookAt = (e.target.id);
-            switch (lookAt){
-                case 'ddMenu1':
-                    console.log("dd1");
-                    // <a href="#Starters"></a>
-                    // loadStarters();
+        //     let lookAt = (e.target.id);
+        //     switch (lookAt){
+        //         case 'ddMenu1':
+        //             console.log("dd1");
+        //             // <a href="#Starters"></a>
+        //             // loadStarters();
                     
-                    break;
-                case 'ddMenu2':
-                    console.log('hit2');
-                    break;
-                case 'ddMenu3':
-                    console.log('hit3');
-                    break;
-                case 'ddMenu4':
-                    console.log('hit4');
-                    break;
-                case 'ddMenu5':
-                    console.log('hit5');
-                    break;
-                case 'ddMenu6':
-                    console.log('hit6');
-                    break;
-                case 'ddMenu7':
-                    console.log('hit7');
-                    break;
-            }
-        }
+        //             break;
+        //         case 'ddMenu2':
+        //             console.log('hit2');
+        //             break;
+        //         case 'ddMenu3':
+        //             console.log('hit3');
+        //             break;
+        //         case 'ddMenu4':
+        //             console.log('hit4');
+        //             break;
+        //         case 'ddMenu5':
+        //             console.log('hit5');
+        //             break;
+        //         case 'ddMenu6':
+        //             console.log('hit6');
+        //             break;
+        //         case 'ddMenu7':
+        //             console.log('hit7');
+        //             break;
+        //     }
+        // }
 
         if(e.target.id === "hours"){
             popUp(e);
@@ -229,15 +229,15 @@ document.addEventListener('click', (e)=>{
 });
   
 taco.addEventListener('click', (e)=>{
-    taco.classList.toggle('menuTacoUpright');
-    taco.classList.toggle('menuTacoTilt');
+    taco.classList.toggle('menu-taco-upright');
+    taco.classList.toggle('menu-taco-tilt');
     landingPage.classList.toggle('hidden');
 
     dropItLikeItsHot();
     menuSwitcher();
   
 } );
-const tossTheSalad = (e) =>{
+const dropTheSalad = (e) =>{
 let saladBowl = document.querySelectorAll('[data-fall]');
     saladBowl.forEach(veggie => veggie.classList.toggle('falling'));
     saladBowl.forEach(veggie => veggie.classList.toggle('hidden'));
@@ -255,7 +255,7 @@ const dropItLikeItsHot = (e)=>{
     // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
     }
     // console.log(displayMenu);
-    tossTheSalad();
+    dropTheSalad();
     if(loaded === false){
             generateMenuCategories();
             sortAndPost();
