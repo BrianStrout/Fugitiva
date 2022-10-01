@@ -16,7 +16,19 @@
                 <img id="logo" src="./LaFugitiva.png" alt="">
                 <!-- <h1>La Fugitiva!</h1> -->
             </div>
-
+            <div class="modal">
+                <div id="hours_modal" class="modal-content">
+                    <span class="close">&times;</span>
+                    <br>
+                <h1 id="hours_title">HOURS!</h1>
+                    Mon 6PM–12AM~Tues	12–3PM, 6PM–12AM~Wed 12–3PM, 6PM–12AM
+    Thurs 12–3PM, 6PM–12AM~Fri 12:30–3PM, 6PM–2AM~Sat 12PM–1AM~Sun Closed
+            </div>
+            <!-- <div class="location">
+                <span class="material-symbols-outlined landIcon" id="location"> location_on </span>
+                                 Address: Rua de S. Paulo 186, 1200-249 Lisboa      
+            </div> -->
+            </div>
             <div class="dropDown"> 
                 <img id="taco" class="menu-taco menu-taco-upright link" src="./taco.png" alt=""></img>
                 <img id="tomato" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
@@ -51,18 +63,14 @@
     <span class="material-symbols-outlined landIcon" id="hours">
         schedule
         </span>
-    <!-- Mon 6PM–12AM~Tues	12–3PM, 6PM–12AM~Wed 12–3PM, 6PM–12AM
-    Thurs 12–3PM, 6PM–12AM~Fri 12:30–3PM, 6PM–2AM~Sat 12PM–1AM~Sun Closed -->
+
     <br>
 </div>
 <div class="social_tags"><span class="material-symbols-outlined landIcon" id="social">
     photo_camera
     </span>
 </div>
-    <div class="location">
-    <span class="material-symbols-outlined landIcon" id="location"> location_on </span>
-                    <!-- Address: Rua de S. Paulo 186, 1200-249 Lisboa -->
-                    </div>
+
                 <template id="menuitemtemplate">
                     <div class="menuItem" id="menuhere">
                         <!-- <h3>name</h3> -->
@@ -119,13 +127,6 @@ const generateMenuCategories = ()=>{
         ribbon.src = "src/images/ribbon.png";
         ribbon.classList.add('ribbon');
        cateGene.appendChild(ribbon);   
-            // document.getElementById('body').appendChild(ribbon);
-            // down.innerHTML = "Image Element Added."; 
-
-
-
-
-
 
 
         let cateTitle = document.createElement('div');
@@ -184,37 +185,7 @@ let ddMenu = document.querySelectorAll('.dropdown-menu');
 
 document.addEventListener('click', (e)=>{
 
-        // if(e.target.classList.contains('dropdown-menu')){
-            
-        //     let lookAt = (e.target.id);
-        //     switch (lookAt){
-        //         case 'ddMenu1':
-        //             console.log("dd1");
-        //             // <a href="#Starters"></a>
-        //             // loadStarters();
-                    
-        //             break;
-        //         case 'ddMenu2':
-        //             console.log('hit2');
-        //             break;
-        //         case 'ddMenu3':
-        //             console.log('hit3');
-        //             break;
-        //         case 'ddMenu4':
-        //             console.log('hit4');
-        //             break;
-        //         case 'ddMenu5':
-        //             console.log('hit5');
-        //             break;
-        //         case 'ddMenu6':
-        //             console.log('hit6');
-        //             break;
-        //         case 'ddMenu7':
-        //             console.log('hit7');
-        //             break;
-        //     }
-        // }
-
+    
         if(e.target.id === "hours"){
             popUp(e);
         }
