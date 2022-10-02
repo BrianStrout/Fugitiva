@@ -16,18 +16,18 @@
                 <img id="logo" src="./LaFugitiva.png" alt="">
                 <!-- <h1>La Fugitiva!</h1> -->
             </div>
-            <div class="modal">
-                <div id="hours_modal" class="modal-content">
-                    <span class="close">&times;</span>
+            <div id="modal_overlay" class="modal hidden">
+                <div id="hours_modal" class="modal-content hidden">
+                    <span id="hour_closer" class="close">&times;</span>
                     <br>
                 <h1 id="hours_title">HOURS!</h1>
                     Mon 6PM–12AM~Tues	12–3PM, 6PM–12AM~Wed 12–3PM, 6PM–12AM
     Thurs 12–3PM, 6PM–12AM~Fri 12:30–3PM, 6PM–2AM~Sat 12PM–1AM~Sun Closed
             </div>
-            <!-- <div class="location">
-                <span class="material-symbols-outlined landIcon" id="location"> location_on </span>
+            <div id="location_modal" class="location hidden">
+
                                  Address: Rua de S. Paulo 186, 1200-249 Lisboa      
-            </div> -->
+            </div>
             </div>
             <div class="dropDown"> 
                 <img id="taco" class="menu-taco menu-taco-upright link" src="./taco.png" alt=""></img>
@@ -70,7 +70,9 @@
     photo_camera
     </span>
 </div>
-
+<div class="location">
+<span class="material-symbols-outlined landIcon" id="location"> location_on </span>
+</div>
                 <template id="menuitemtemplate">
                     <div class="menuItem" id="menuhere">
                         <!-- <h3>name</h3> -->
@@ -186,8 +188,9 @@ let ddMenu = document.querySelectorAll('.dropdown-menu');
 document.addEventListener('click', (e)=>{
 
     
-        if(e.target.id === "hours"){
-            popUp(e);
+        if(e.target.id === "hours" || "hour_closer" ){
+            document.getElementById("hours_modal").classList.toggle('hidden')
+            document.getElementById("modal_overlay").classList.toggle('hidden')
         }
         if(e.target.id === "social"){
             var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
