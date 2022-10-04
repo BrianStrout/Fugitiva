@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="taco.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
 </head>
 <body>
     <div class="container">
@@ -18,15 +19,16 @@
             </div>
             <div id="modal_overlay" class="modal hidden">
                 <div id="hours_modal" class="modal-content hidden">
-                    <span id="hour_closer" class="close">&times;</span>
+                    <span id="hours_closer" class="close">&times;</span>
                     <br>
                 <h1 id="hours_title">HOURS!</h1>
                     Mon 6PM–12AM~Tues	12–3PM, 6PM–12AM~Wed 12–3PM, 6PM–12AM
     Thurs 12–3PM, 6PM–12AM~Fri 12:30–3PM, 6PM–2AM~Sat 12PM–1AM~Sun Closed
             </div>
-            <div id="location_modal" class="location hidden">
-
-                                 Address: Rua de S. Paulo 186, 1200-249 Lisboa      
+            <div id="location_modal" class="modal hidden">
+                <span id="location_closer" class="close">&times;</span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d476.3737652982716!2d-9.146111012605193!3d38.708214622031456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19353f9c6a4a9b%3A0xed7b95506ab097e8!2sLa%20Fugitiva%20Taco%20Bar!5e0!3m2!1spt-PT!2spt!4v1664888626176!5m2!1spt-PT!2spt" width="90%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      <span id="addy">Address: Rua de S. Paulo 186, 1200-249 Lisboa </span>   
             </div>
             </div>
             <div class="dropDown"> 
@@ -186,9 +188,14 @@ let taco = document.getElementById('taco');
 let ddMenu = document.querySelectorAll('.dropdown-menu');
 
 document.addEventListener('click', (e)=>{
-
+        console.log(e.target)
     
-        if(e.target.id === "hours" || "hour_closer" ){
+        if(e.target.id === "hours" ){
+            document.getElementById("hours_modal").classList.toggle('hidden')
+            document.getElementById("modal_overlay").classList.toggle('hidden')
+        }
+        
+        if(e.target.id === "hours_closer"){
             document.getElementById("hours_modal").classList.toggle('hidden')
             document.getElementById("modal_overlay").classList.toggle('hidden')
         }
@@ -197,7 +204,12 @@ document.addEventListener('click', (e)=>{
             window.open('https://www.instagram.com/lafugitivatacobar' , "_blank", strWindowFeatures);
         }
         if(e.target.id === "location"){
-            popUp(e);
+            document.getElementById("location_modal").classList.toggle('hidden')
+            document.getElementById("modal_overlay").classList.toggle('hidden')
+        }
+        if(e.target.id === "location_closer"){
+            document.getElementById("location_modal").classList.toggle('hidden')
+            document.getElementById("modal_overlay").classList.toggle('hidden')
         }
 
 });

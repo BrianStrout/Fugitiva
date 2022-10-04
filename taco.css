@@ -10,6 +10,13 @@
 }
 
 
+@font-face {
+  font-family: "cowboy";
+  src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
+}
+
+
+
 .flyer{
   display: grid;
   grid-template-rows: 14% 1fr var(--footer);
@@ -250,6 +257,12 @@ animation: tilt-shaking 0.65s infinite;
   height: 70vw;
 }
 
+
+#addy{
+  margin-top: 5px;
+  background-color: #fefefe;
+}
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -346,7 +359,11 @@ text-decoration: underline;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  
+  font-family: "cowboy";  
+}
+
+.categoryTitle > a{
+  font-family: "cowboy";
 }
 
 .menuDesc{
