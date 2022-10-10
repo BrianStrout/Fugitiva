@@ -393,6 +393,17 @@ text-decoration: underline;
         pointer-events: none;
     }
 
+@media screen and (min-width: 420px){
+  .menu-taco{
+ 
+    width: 126px;
+
+}
+  
+}
+
+
+
   @keyframes tilt-shaking {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(2deg); }
