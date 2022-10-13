@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="taco.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+</head>
+<body>
+    <div class="container">
+       
+        <div class="flyer">
+            <div class="header">
+                <img id="logo" src="./LaFugitiva.png" alt="">
+                <!-- <h1>La Fugitiva!</h1> -->
+            </div>
+            <div id="modal_overlay" class="modal hidden">
+                <div id="hours_modal" class="modal-content hidden">
+                    <span id="hours_closer" class="close">&times;</span>
+                    <br>
+                <h1 id="hours_title">HOURS!</h1>
+                <div class="ribbon">
+        <img src="src/images/ribbon.png";/> </div>
+        <div class="hourListDiv">
+        <ul id="hours_list">
+            <li>Mon 6PM–12AM</li>
+            <li>Tues 12–3PM , 6PM–12AM</li>
+            <li>Wed 12–3PM, 6PM–12AM</li>
+            <li>Thurs 12–3PM, 6PM–12AM</li>
+            <li>Fri 12:30–3PM, 6PM–2AM</li>
+            <li>Sat 12PM–1AM</li>
+            <li>Sun ~ closed</li>
+            ~AM~
+            ~~~Sun Closed
+</ul>
+</div>
+    <div class="ribbon">
+        <img src="src/images/ribbon.png";/> </div>
+            </div>
+            <div id="location_modal" class="modal hidden">
+                <span id="location_closer" class="close">&times;</span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d476.3737652982716!2d-9.146111012605193!3d38.708214622031456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19353f9c6a4a9b%3A0xed7b95506ab097e8!2sLa%20Fugitiva%20Taco%20Bar!5e0!3m2!1spt-PT!2spt!4v1664888626176!5m2!1spt-PT!2spt" width="90%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      <span id="addy">Address: Rua de S. Paulo 186, 1200-249 Lisboa </span>   
+            </div>
+            </div>
+            <div class="dropDown"> 
+                <img id="taco" class="menu-taco menu-taco-upright link" src="./taco.png" alt=""></img>
+                <img id="tomato" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
+                <img id="tomato2" class="tomato hidden" src="./tomato.png" data-fall alt=""></img>
+                <img id="lettuce" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
+                <img id="lettuce2" class="tomato hidden" src="./lettuce.png" data-fall alt=""></img>
+                <img id="onion" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
+                <img id="onion2" class="tomato hidden" src="./onion.png" data-fall alt=""></img>
+                <div id="ddMenu1" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Starters';" >Starters</div>
+                <div id="ddMenu2" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Soups';" >Soup & Salad</div>
+                <div id="ddMenu3" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Ceviches';" >Ceviches</div>
+                <div id="ddMenu4" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Tacos';" >Tacos</div>
+                <div id="ddMenu5" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Tortas';" >Tortas</div>
+                <div id="ddMenu6" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Desserts';" >Desserts</div>
+                <div id="ddMenu7" class="dropdown-menu dropdown-menu-inactive hidden" onclick="location.href='#Drinks';" >Drinks</div>
+            </div>
+
+            <div class="displayMenu" id="displayMenu">
+                <div class="homeDisplay" id="landingPage">
+                    <div class="images-slideshow">
+                        <div class="imageSlides fade">
+                            <img src="src/images/img1.png">
+                        </div>
+                        <div class="imageSlides fade">
+                            <img src="src/images/img2.png">
+                        </div>
+                        <div class="imageSlides fade">
+                            <img src="src/images/img3.png">
+                        </div>
+                </div><br>
+<div class="hours">
+    <span class="material-symbols-outlined landIcon" id="hours">
+        schedule
+        </span>
+
+    <br>
+</div>
+<div class="social_tags"><span class="material-symbols-outlined landIcon" id="social">
+    photo_camera
+    </span>
+</div>
+<div class="location">
+<span class="material-symbols-outlined landIcon" id="location"> location_on </span>
+</div>
+                <template id="menuitemtemplate">
+                    <div class="menuItem" id="menuhere">
+                        <!-- <h3>name</h3> -->
+                        <span class="temp_item"></span>
+                        <span class="temp_icons"></span>
+                        <span class="temp_price"></span>
+                        <br>
+                        <span class="temp_plate"></span>    
+                    </div>
+                </template>
+            </div>
+            <div class="footer">Coded & Assembled by Brian Strout</div>
+        </div>
+    </div>
+ 
+</body>
+
+
+<script src="/index.js" type="module"></script>
+
+
+</html>
+
+
+
