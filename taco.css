@@ -60,7 +60,11 @@ animation: tilt-shaking 0.65s infinite;
 }
 
 #logo{
-  max-width: 80%;
+  margin-left: 10%;
+  /* max-width: 80%; */
+  /* max-height: 80%; */
+  /* height: 80%; */
+  /* transform: skew(0); */
   /* opacity: 50%; */
 }
 
@@ -74,6 +78,7 @@ animation: tilt-shaking 0.65s infinite;
   .dropDown{
     grid-area: drop;
     display: flex;
+    align-items: flex-end;
     flex-direction: column;
     justify-content: flex-end;
     gap: 1rem;
@@ -85,6 +90,7 @@ animation: tilt-shaking 0.65s infinite;
   }
 
   .dropdown-menu{
+    margin-left: auto;
     height: 7vh;
     width: 7vh;
     margin: 1px;
@@ -98,6 +104,9 @@ animation: tilt-shaking 0.65s infinite;
     opacity: 1;
     /* transform: translateY(-150px); */
     transition: opacity 150ms ease-in-out, transform .7s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .dropdown-menu:hover{
     background-color: hotpink;
@@ -188,9 +197,6 @@ animation: tilt-shaking 0.65s infinite;
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-content: center;
-  align-content: center; */
   align-items: center;
    
 }
@@ -230,11 +236,8 @@ animation: tilt-shaking 0.65s infinite;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* display: none; Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 3; /* Sit on top */
-  /* left: 25%; */
-  /* right: 50%; */
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
@@ -245,10 +248,6 @@ animation: tilt-shaking 0.65s infinite;
 
 /* Modal Content/Box */
 .modal-content {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-  /* align-items: center; */
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -289,10 +288,6 @@ animation: tilt-shaking 0.65s infinite;
   'wght' 400,
   'GRAD' 0,
   'opsz' 48,
-  
-  /* font-size: 50px; */
-
-
 }
 
 #hours{
@@ -339,18 +334,6 @@ text-decoration: underline;
 }
 
 
-
-.menuCategory{
-  /* background-color: crimson; */
-}
-
-
-.ribbon{
-  /* position: absolute;
-  clip: rect(0px,10%,0px,0px); */
-
-}
-
 .categoryTitle{
   background-color: rgba(255, 255, 255, 0.105);
   /* box-shadow: 2px 2px 5px rgba(255, 254, 254, 0.22); */
@@ -395,13 +378,21 @@ text-decoration: underline;
 
 @media screen and (min-width: 420px){
   .menu-taco{
- 
     width: 126px;
-
 }
-  
 }
 
+@media only screen and (min-width: 780px) {
+  .flyer{
+  grid-template-rows: 25% 1fr var(--footer);
+  grid-template-columns:  1fr 20%;
+  }
+
+  .dropdown-menu{
+    margin-left: auto;
+    height: 7vh;
+    width: 90%;}
+}
 
 
   @keyframes tilt-shaking {
