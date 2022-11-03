@@ -3,19 +3,20 @@
   --white: #ffffff;
   --footer: 5vh;
 }
-
 *{
   margin: 0;
   padding: 0;
 }
-
 
 @font-face {
   font-family: "cowboy";
   src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
 }
 
-
+#companyLogo{
+  font-family: "cowboy";
+  font-size: 3rem;
+}
 
 .flyer{
   display: grid;
@@ -30,11 +31,10 @@
 background-color: rgb(140, 212, 229);
 }
 
-
 .menu-taco{
     position: fixed;
-    right: 0px;
-    top: -5px;
+    right: 15px;
+    top: 0px;
     /* width: 130px; */
     /* width: 8.125rem; */
     width: 30vw;
@@ -61,19 +61,7 @@ animation: tilt-shaking 0.65s infinite;
 
 #logo{
   margin-left: 10%;
-  /* max-width: 80%; */
-  /* max-height: 80%; */
-  /* height: 80%; */
-  /* transform: skew(0); */
-  /* opacity: 50%; */
 }
-
-
-
-
-
-
-
 
   .dropDown{
     grid-area: drop;
@@ -191,14 +179,13 @@ animation: tilt-shaking 0.65s infinite;
 .homeDisplay{
   background-color: var(--bgmain);
   position:fixed;  
-  /* top:0; */
   z-index: 2;
   flex-grow: 1;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-   
+  justify-content: center;
 }
 
 
@@ -301,7 +288,6 @@ animation: tilt-shaking 0.65s infinite;
 }
 
 .landIcon{
-  
   font-size: large;
 }
 
@@ -311,6 +297,7 @@ animation: tilt-shaking 0.65s infinite;
   align-items: stretch;
   padding: 0 .5rem;
   overflow: scroll;
+  grid-area: "display";
 }
 
 .menuItem{
@@ -336,7 +323,6 @@ text-decoration: underline;
 
 .categoryTitle{
   background-color: rgba(255, 255, 255, 0.105);
-  /* box-shadow: 2px 2px 5px rgba(255, 254, 254, 0.22); */
   height: 3rem;
   display: flex;
   justify-content: center;
@@ -367,8 +353,6 @@ text-decoration: underline;
     flex: 1;
     justify-content: center;
     align-items: center;
-    /* justify-items: center; */
-
   }
 
     .hidden{
@@ -376,13 +360,14 @@ text-decoration: underline;
         pointer-events: none;
     }
 
-@media screen and (min-width: 420px){
+@media screen and (max-width: 480px){
   .menu-taco{
     width: 126px;
 }
 }
 
-@media only screen and (min-width: 780px) {
+/* TABLETS */
+@media only screen and (min-width: 768px) {
   .flyer{
   grid-template-rows: 25% 1fr var(--footer);
   grid-template-columns:  1fr 20%;
@@ -393,6 +378,76 @@ text-decoration: underline;
     height: 7vh;
     width: 90%;}
 }
+
+/* LAPTOPS */
+@media only screen and (min-width: 1024px){
+  .menu-taco{
+    position: fixed;
+    right: 40px;
+    top: 15px;
+    /* width: 130px; */
+    /* width: 8.125rem; */
+    width: 30vw;
+    z-index: 1;
+}
+
+
+  #companyLogo{
+    font-family: "cowboy";
+    font-size: 10rem;
+  }
+
+  .flyer{
+    display: grid;
+    grid-template-rows: 40% 1fr var(--footer);
+    grid-template-columns:  1fr 15%;
+    grid-template-areas: 
+    "header drop"
+    "display drop"
+    "footer footer";
+    width: 100vw;
+    height: 100vh;
+  background-color: rgb(140, 212, 229);
+  }
+
+
+  .header{
+    grid-area: header;    
+    background-color: var(--bgmain);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    padding-bottom: .5rem;
+    margin: .5rem;
+    margin-top: 3rem;
+  }
+  
+  .dropDown{
+    padding: 2rem;
+  }
+  .dropdown-menu{
+    padding-top: ;
+    margin-left: auto;
+    height: 10rem;
+    width: 13rem;
+  }
+  .tomato{
+  position: fixed;
+  right: 90px;
+  top: 60px;
+  z-index: 0;
+  max-width: 50px;
+  transition: opacity 5s ease-in;
+  }
+
+}
+
+
+
+
+
+
 
 
   @keyframes tilt-shaking {
