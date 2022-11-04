@@ -7,6 +7,10 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background-color: var(--bgmain);
+  overflow-x: hidden;
+}
 
 @font-face {
   font-family: "cowboy";
@@ -35,9 +39,7 @@ background-color: rgb(140, 212, 229);
     position: fixed;
     right: 15px;
     top: 0px;
-    /* width: 130px; */
-    /* width: 8.125rem; */
-    width: 30vw;
+    width: 20vw;
     z-index: 1;
 }
 
@@ -49,8 +51,8 @@ animation: tilt-shaking 0.65s infinite;
     animation: up-tilt-shaking 0.65s infinite;
 }
 .header{
+  position: static;
   grid-area: header;    
-  /* background-color: darkseagreen; */
   background-color: var(--bgmain);
   display: flex;
   justify-content: center;
@@ -58,15 +60,14 @@ animation: tilt-shaking 0.65s infinite;
   padding: .5rem;
   margin: .25rem;
 }
-
 #logo{
   margin-left: 10%;
 }
-
   .dropDown{
+    /* position: static; */
     grid-area: drop;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: column;
     justify-content: flex-end;
     gap: 1rem;
@@ -75,6 +76,7 @@ animation: tilt-shaking 0.65s infinite;
   .dropdown-menu>a{
     color: black;
     text-decoration: none;
+  
   }
 
   .dropdown-menu{
@@ -95,7 +97,15 @@ animation: tilt-shaking 0.65s infinite;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "cowboy";
+    font-size: 1.3rem;
   }
+
+.dropdown-menu>h2{
+  font-size: 1.3rem;
+}
+
+
   .dropdown-menu:hover{
     background-color: hotpink;
   }
@@ -295,7 +305,7 @@ animation: tilt-shaking 0.65s infinite;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 0 .5rem;
+  padding: 0 0rem;
   overflow: scroll;
   grid-area: "display";
 }
@@ -360,11 +370,6 @@ text-decoration: underline;
         pointer-events: none;
     }
 
-@media screen and (max-width: 480px){
-  .menu-taco{
-    width: 126px;
-}
-}
 
 /* TABLETS */
 @media only screen and (min-width: 768px) {
@@ -377,7 +382,24 @@ text-decoration: underline;
     margin-left: auto;
     height: 7vh;
     width: 90%;}
+    #companyLogo{
+      font-family: "cowboy";
+      font-size: 5rem;
+    }
+
+
+
+.tomato{
+  position: fixed;
+  right: 60px;
+  top: 60px;
+  z-index: 0;
+  max-width: 80px;
+  transition: opacity 5s ease-in;
+  }
+
 }
+
 
 /* LAPTOPS */
 @media only screen and (min-width: 1024px){
@@ -440,15 +462,7 @@ text-decoration: underline;
   max-width: 50px;
   transition: opacity 5s ease-in;
   }
-
-}
-
-
-
-
-
-
-
+} */
 
   @keyframes tilt-shaking {
     0% { transform: rotate(0deg); }
