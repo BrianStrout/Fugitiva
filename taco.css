@@ -317,7 +317,7 @@ animation: tilt-shaking 0.65s infinite;
 }
 .temp_item{
 font-size: 1.25rem;
-text-decoration: underline;
+/* text-decoration: underline; */
 }
 
 

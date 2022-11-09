@@ -1,4 +1,4 @@
-<script type="module">
+{/* <script type="module"> */}
 
 let loaded = false;
 
@@ -25,10 +25,22 @@ let dispShown = "home";
 const landingPage = document.getElementById('landingPage');
 
 
+window.addEventListener("hashchange", function () {
+    window.scrollTo(window.scrollX, window.scrollY - 100);
+});
+
+
+
+
+
 const generateMenuCategories = ()=>{
     for (const item of sheetCat){
+
+
+
         let cateGene = document.createElement('div');
         cateGene.classList.add("menuCategory");
+        cateGene.innerHTML=`<a name="${item.Category}"></a>`
         displayMenu.appendChild(cateGene);   
 
         let ribbon = new Image(); 
@@ -39,7 +51,7 @@ const generateMenuCategories = ()=>{
 
         let cateTitle = document.createElement('div');
         cateTitle.classList.add("categoryTitle");
-        cateTitle.innerHTML=`<a name="${item.Category}">${item.Category}</a>`
+        cateTitle.innerHTML=`<H2>${item.Category}</H2>`
         cateGene.appendChild(cateTitle);
 
         let ribbonBot = new Image(); 
@@ -61,10 +73,7 @@ const sortAndPost = ()=>{
     for (const item of sheetData) {
         // console.log(item.item);
         let targetCategory = "";
-
-
-
-            
+           
         const content = menuItemTemplate.content.cloneNode(true);
             targetCategory = "";
             if(item.Category !== undefined && item.Category !== "" && item.Category !== " " && item.Category !== null){
@@ -75,8 +84,8 @@ const sortAndPost = ()=>{
             console.log(item.Category, "logged");
                 // if(item.sub === "TRUE")item.classList.add("submenu");
             let targetDiv =  document.getElementById(targetCategory);
-                content.querySelector('span.temp_item').textContent = item.item || 'missing name'
-                content.querySelector('span.temp_price').textContent = item.price || 'missing price'
+                content.querySelector('span.temp_item').textContent = item.item 
+                content.querySelector('span.temp_price').textContent = item.price 
                 content.querySelector('span.temp_plate').textContent = item.description
                 targetDiv.appendChild(content);
         }
@@ -115,13 +124,21 @@ document.addEventListener('click', (e)=>{
             document.getElementById("location_modal").classList.toggle('hidden')
             document.getElementById("modal_overlay").classList.toggle('hidden')
         }
-
 });
   
 taco.addEventListener('click', (e)=>{
+
+
+
+
+
+
     taco.classList.toggle('menu-taco-upright');
     taco.classList.toggle('menu-taco-tilt');
     landingPage.classList.toggle('hidden');
+    
+    // let grab= document.querySelectorAll("menuCategory")
+    // grab.classList.toggle('hidden');
 
     dropItLikeItsHot();
     menuSwitcher();
@@ -189,4 +206,4 @@ function myStopFunction() {
 setSlides(0);
 timeCop();
 
-</script>
+// </script>    
