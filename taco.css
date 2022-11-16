@@ -4,30 +4,25 @@
   --footer: 5vh;
   --header: clamp(250px, 14%, 300px);
 }
+@font-face {
+  font-family: "cowboy";
+  src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
-
-
-
 
 body{
   background-color: var(--bgmain);
   overflow-x: hidden;
 }
 
-@font-face {
-  font-family: "cowboy";
-  src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
-}
-      
-#companyLogo{
-  font-family: "cowboy";
-  font-size: clamp(40px, 4vw, 500px);
-}
 
 .flyer{
   display: grid;
@@ -43,11 +38,18 @@ body{
 background-color: rgb(140, 212, 229);
 }
 
+#companyLogo{
+  font-family: "cowboy";
+  font-size: clamp(40px, 4vw, 500px);
+}
+
+
+
 #taco{
     position: fixed;
-    right: 15px;
+    right: clamp(1px, 5vw, 200px);
     top: 0px;
-    width: clamp(120px, 12vw, 280px);
+    width: clamp(80px, 16vw, 220px);
     z-index: 90;
 }
 
@@ -64,19 +66,12 @@ animation: tilt-shaking 0.65s infinite;
   padding-left: 20vw;
   padding-top: 4vw;
   padding-bottom: 1vw;
-  /* background-color: var(--bgmain); */
-  /* background-color: pink; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: .5rem; */
-  /* margin: .25rem; */
 }
-#companyLogo{
-  /* margin-left: 20vw; */
-}
+
   .dropDown{
-    /* position: static; */
     padding-top: clamp(100px, 18vw, 600px);
     padding-bottom: clamp(40px, 10vw, 600px);
     grid-area: drop;
@@ -94,20 +89,17 @@ animation: tilt-shaking 0.65s infinite;
   }
 
   .dropdown-menu{
-    /* margin-left: auto; */
-    /* margin-top: 7vw; */
     height: max(7vw, 80px);
     width: max(14vw, 80px);
     margin: 1px;
-    /* position: fixed; */
     z-index: 0;
     right: 0;
-    /* top: calc(20% + .25rem); */
+
     padding: .75rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
     background-color:  rgb(140, 212, 229, .8);
     opacity: 1;
-    /* transform: translateY(-150px); */
+
     transition: opacity 150ms ease-in-out, transform .7s ease-in-out;
     display: flex;
     justify-content: center;
@@ -164,16 +156,13 @@ animation: tilt-shaking 0.65s infinite;
   
 }
 
-  #taco{
-    z-index: 1;
-  }
 
   .tomato{
   position: fixed;
-  right: max(55px,6vw);
-  top: 8vw;
+  right: clamp(30px, 10vw, 200px);
+  top: 6vw;
   z-index: 0;
-  width: max(60px, 6vw);
+  width: clamp(50px, 10vw, 80px);
   transition: opacity 5s ease-in;
   }
 
@@ -202,8 +191,6 @@ animation: tilt-shaking 0.65s infinite;
 
 
 .homeDisplay{
-  /* background-color:darkorange; */
-  /* position: relative; */
   z-index: 2;
   flex-grow: 1;
   min-height: 100%;
@@ -260,33 +247,35 @@ animation: tilt-shaking 0.65s infinite;
 .modal {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: fixed; /* Stay in place */
   z-index: 3; /* Sit on top */
+  margin-top: clamp(50px, 8vw, 540px);
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100vw; /* Full width */
+  height: 100vw; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
+  /* margin: 5% auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 70vw; /* Could be more or less, depending on screen size */
-  height: 70vw;
+  width: 80vw; /* Could be more or less, depending on screen size */
+  height: 100vw;
 }
 
 
 .clickables{
+  width: clamp(300px, 40%, 500px);
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   z-index: 5;
+  gap:1rem;
 }
 
 #addy{
@@ -323,13 +312,16 @@ animation: tilt-shaking 0.65s infinite;
 }
 
 #hours{
-  font-size: 7rem;
+  font-size: clamp( 4rem, 10vw, 8rem);
+
 }
 #social{
-  font-size: 7rem;
+  font-size: clamp( 4rem, 10vw, 8rem);
+
 }
 #location{
-  font-size: 7rem;
+  font-size: clamp( 4rem, 10vw, 8rem);
+
 }
 
 
@@ -383,7 +375,7 @@ font-size: 1.25rem;
 
 .menuDesc{
   background-color: var(--bgmain);
-  padding: max(.5rem,5vw);
+  padding: 0.5vw 5vw 3vw 5vw;
 }
 
   .footer{
@@ -434,3 +426,33 @@ font-size: 1.25rem;
     display: none;
     pointer-events: none;
   }
+
+
+
+  @media only screen and (min-width: 600px){
+
+.modal{
+  width: 100vw; 
+  height: 70vh;
+}
+
+  .modal-content {
+    background-color: #fefefe;
+
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80vw; 
+    height: 50vw;
+  }
+  }
+
+
+  @media only screen and (max-width: 600px){
+    .header{
+      padding-left: 10vw;
+  }
+
+    .displayMenu{
+      padding-left: 10vw;
+  }
+}
