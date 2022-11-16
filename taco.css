@@ -2,10 +2,13 @@
   --bgmain: rgb(140, 212, 229);
   --white: #ffffff;
   --footer: 5vh;
+  --header: clamp(250px, 14%, 300px);
 }
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 body{
   background-color: var(--bgmain);
@@ -17,29 +20,33 @@ body{
   src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
 }
 
+.padder{
+  width: 20vw;
+}
 #companyLogo{
   font-family: "cowboy";
-  font-size: 3rem;
+  font-size: clamp(40px, 8vw, 500px);
 }
 
 .flyer{
   display: grid;
-  grid-template-rows: 14% 1fr var(--footer);
-  grid-template-columns:  1fr 20%;
+  /* grid-template-rows: var(--header) 1fr var(--footer); */
+  grid-template-columns: 1fr 20vw;
   grid-template-areas: 
   "header drop"
   "display drop"
   "footer footer";
   width: 100vw;
   height: 100vh;
+  max-width: 100%;
 background-color: rgb(140, 212, 229);
 }
 
-.menu-taco{
+#taco{
     position: fixed;
     right: 15px;
     top: 0px;
-    width: 20vw;
+    width: clamp(120px, 15vw, 280px);
     z-index: 1;
 }
 
@@ -53,24 +60,30 @@ animation: tilt-shaking 0.65s infinite;
 .header{
   position: static;
   grid-area: header;    
-  background-color: var(--bgmain);
+  padding-left: 20vw;
+  padding-top: 4vw;
+  padding-bottom: 1vw;
+  /* background-color: var(--bgmain); */
+  background-color: pink;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
-  margin: .25rem;
+  /* padding: .5rem; */
+  /* margin: .25rem; */
 }
-#logo{
-  margin-left: 10%;
+#companyLogo{
+  /* margin-left: 20vw; */
 }
   .dropDown{
     /* position: static; */
+    padding-top: clamp(100px, 18vw, 600px);
+    padding-bottom: clamp(40px, 10vw, 600px);
     grid-area: drop;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 1rem;
+    justify-content: space-around;
+    gap: 1vw;
   }
 
   .dropdown-menu>a{
@@ -80,9 +93,10 @@ animation: tilt-shaking 0.65s infinite;
   }
 
   .dropdown-menu{
-    margin-left: auto;
-    height: 7vh;
-    width: 7vh;
+    /* margin-left: auto; */
+    /* margin-top: 7vw; */
+    height: max(7vw, 80px);
+    width: max(7vw, 80px);
     margin: 1px;
     /* position: fixed; */
     z-index: 0;
@@ -155,10 +169,10 @@ animation: tilt-shaking 0.65s infinite;
 
   .tomato{
   position: fixed;
-  right: 45px;
-  top: 30px;
+  right: max(55px,6vw);
+  top: 8vw;
   z-index: 0;
-  max-width: 50px;
+  width: max(60px, 6vw);
   transition: opacity 5s ease-in;
   }
 
@@ -207,7 +221,7 @@ animation: tilt-shaking 0.65s infinite;
                                             }
                                             /* Our main images-slideshow container */
                                             .images-slideshow {
-                                              max-width: 90%;
+                                              width: clamp(300px, 80%, 1000px);
                                               position: relative;
                                               margin: 0;
                                             }
@@ -337,7 +351,10 @@ font-size: 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+
+}
+.categoryTitle > h2{
+  font-size: clamp(1rem, 6vw, 4.5rem);
   font-family: "cowboy";  
 }
 
@@ -347,7 +364,7 @@ font-size: 1.25rem;
 
 .menuDesc{
   background-color: var(--bgmain);
-  padding: 1rem;
+  padding: max(.5rem,5vw);
 }
 
   .footer{
@@ -369,100 +386,6 @@ font-size: 1.25rem;
         opacity: 0;
         pointer-events: none;
     }
-
-
-/* TABLETS */
-@media only screen and (min-width: 768px) {
-  .flyer{
-  grid-template-rows: 25% 1fr var(--footer);
-  grid-template-columns:  1fr 20%;
-  }
-
-  .dropdown-menu{
-    margin-left: auto;
-    height: 7vh;
-    width: 90%;}
-    #companyLogo{
-      font-family: "cowboy";
-      font-size: 5rem;
-    }
-
-
-
-.tomato{
-  position: fixed;
-  right: 60px;
-  top: 60px;
-  z-index: 0;
-  max-width: 80px;
-  transition: opacity 5s ease-in;
-  }
-
-}
-
-
-/* LAPTOPS */
-@media only screen and (min-width: 1024px){
-  .menu-taco{
-    position: fixed;
-    right: 40px;
-    top: 15px;
-    /* width: 130px; */
-    /* width: 8.125rem; */
-    width: 30vw;
-    z-index: 1;
-}
-
-
-  #companyLogo{
-    font-family: "cowboy";
-    font-size: 10rem;
-  }
-
-  .flyer{
-    display: grid;
-    grid-template-rows: 40% 1fr var(--footer);
-    grid-template-columns:  1fr 15%;
-    grid-template-areas: 
-    "header drop"
-    "display drop"
-    "footer footer";
-    width: 100vw;
-    height: 100vh;
-  background-color: rgb(140, 212, 229);
-  }
-
-
-  .header{
-    grid-area: header;    
-    background-color: var(--bgmain);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
-    padding-bottom: .5rem;
-    margin: .5rem;
-    margin-top: 3rem;
-  }
-  
-  .dropDown{
-    padding: 2rem;
-  }
-  .dropdown-menu{
-    padding-top: ;
-    margin-left: auto;
-    height: 10rem;
-    width: 13rem;
-  }
-  .tomato{
-  position: fixed;
-  right: 90px;
-  top: 60px;
-  z-index: 0;
-  max-width: 50px;
-  transition: opacity 5s ease-in;
-  }
-} */
 
   @keyframes tilt-shaking {
     0% { transform: rotate(0deg); }
