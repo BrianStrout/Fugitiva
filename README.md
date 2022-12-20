@@ -2,7 +2,7 @@
 <br />
 <div align="center">
 <p>
-  <!-- <img align="center" width="300"  src="./src/images/MashaSiteScreenShot.png" alt="Logo" > -->
+  <img align="center" width="300"  src="./src/images/FugativaSiteScreenShot.png" alt="Logo" >
 </p>
 </div>
 <h1>La Fugitiva</h1>
