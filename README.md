@@ -51,7 +51,7 @@ This project was made for strictly educational purposes. Though the menu items, 
 
 Brian Strout Brianjstrout@Gmail.com
 
-Project Link: [https://github.com/bstrout/masha](https://github.com/bstrout/masha)
+Project Link: [https://https://lafugitiva.netlify.app](https://https://lafugitiva.netlify.app)
 
 <!-- ACKNOWLEDGMENTS -->
 
