@@ -93,14 +93,15 @@ const sortAndPost = () => {
         "text-decoration: underline; font-weight: bold; margin-left: .5rem";
     } else if (item.with === "TRUE") {
       content.querySelector("span.temp_item").classList.add("margin-left");
-    } else {
-      content.querySelector("span.temp_item").style = "margin-left: 1.5rem";
     }
+    // else {
+    //   content.querySelector("span.temp_item").style = "margin-left: 1.5rem";
+    // }
 
     content.querySelector("span.temp_item").textContent = item.item;
     content.querySelector("span.temp_price").textContent = item.price;
     content.querySelector("span.temp_plate").textContent = item.description;
-    content.querySelector("span.temp_plate").style = "margin-left: 2.5rem";
+    // content.querySelector("span.temp_plate").style = "margin-left: 2.5rem";
     targetDiv.appendChild(content);
   }
 };
