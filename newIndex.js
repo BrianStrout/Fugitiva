@@ -43,7 +43,7 @@ const generateMenuCategories = () => {
     hideableMenu.appendChild(cateGene);
 
     let ribbon = new Image();
-    ribbon.src = "src/images/ribbonEdited.png";
+    ribbon.src = "src/images/ribbon.png";
     ribbon.classList.add("ribbon");
     cateGene.appendChild(ribbon);
 
@@ -53,7 +53,7 @@ const generateMenuCategories = () => {
     cateGene.appendChild(cateTitle);
 
     let ribbonBot = new Image();
-    ribbonBot.src = "src/images/ribbonEdited.png";
+    ribbonBot.src = "src/images/ribbon.png";
     ribbonBot.classList.add("ribbon");
     cateGene.appendChild(ribbonBot);
 
