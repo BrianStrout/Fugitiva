@@ -26,7 +26,11 @@ const menuItemsSheet = {
 };
 const sheetData = await getSheet(menuItemsSheet);
 const sheetCat = await getSheet(menuCatSheet);
-
+const hoursDisplay = document.getElementById("new-hour-layout");
+const locationDisplay = document.getElementById("new-location-layout");
+let altScreen = false;
+let taco = document.getElementById("taco");
+let ddMenu = document.querySelectorAll(".dropdown-menu");
 window.addEventListener("hashchange", function () {
   window.scrollTo(window.scrollX, window.scrollY - 100);
 });
@@ -88,7 +92,7 @@ const sortAndPost = () => {
       content.querySelector("span.temp_item").style =
         "text-decoration: underline; font-weight: bold; margin-left: .5rem";
     } else if (item.with === "TRUE") {
-      content.querySelector("span.temp_item").style = "margin-left: 40%;";
+      content.querySelector("span.temp_item").classList.add("margin-left");
     } else {
       content.querySelector("span.temp_item").style = "margin-left: 1.5rem";
     }
@@ -101,48 +105,46 @@ const sortAndPost = () => {
   }
 };
 
-const popUp = (e) => {
-  console.log(e.target.id);
-};
-const menuSwitcher = () => {};
-
-let taco = document.getElementById("taco");
-let ddMenu = document.querySelectorAll(".dropdown-menu");
-
-const switchBoard = () => {
-  console.log("Switchboard hit");
-};
-
 document.addEventListener("click", (e) => {
-  if (e.target.id === "hours") {
-    // document.getElementById("hours_modal").classList.toggle("hidden");
-    // document.getElementById("modal_overlay").classList.toggle("hidden");
-    console.log(e.target.id + "clicked");
+  console.log(e.target.id);
+  if (altScreen) {
+    if (
+      e.target.id !== "new-hour-layout" &&
+      !hoursDisplay.classList.contains("waiting")
+    ) {
+      hoursDisplay.classList.add("waiting");
+      altScreen = false;
+      return;
+    }
+    if (
+      e.target.id !== "new-location-layout" &&
+      !locationDisplay.classList.contains("waiting")
+    ) {
+      locationDisplay.classList.add("waiting");
+      altScreen = false;
+      return;
+    }
+  }
+  if (e.target.id === "hour-div") {
+    hoursDisplay.classList.remove("waiting");
+    altScreen = true;
+    return;
   }
 
-  if (e.target.id === "hours_closer") {
-    // document.getElementById("hours_modal").classList.toggle("hidden");
-    // document.getElementById("modal_overlay").classList.toggle("hidden");
+  if (e.target.id === "social-div") {
     console.log(e.target.id + "clicked");
+    var strWindowFeatures =
+      "location=yes,height=700,width=520,scrollbars=yes,status=yes";
+    window.open(
+      "https://www.instagram.com/lafugitivatacobar",
+      "_blank",
+      strWindowFeatures
+    );
   }
-  if (e.target.id === "social") {
-    console.log(e.target.id + "clicked");
-    // var strWindowFeatures =
-    //   "location=yes,height=570,width=520,scrollbars=yes,status=yes";
-    // window.open(
-    //   "https://www.instagram.com/lafugitivatacobar",
-    //   "_blank",
-    //   strWindowFeatures
-    // );
-  }
-  if (e.target.id === "location") {
-    console.log(e.target.id + "clicked");
-    // document.getElementById("location_modal").classList.toggle("hidden");
-    // document.getElementById("modal_overlay").classList.toggle("hidden");
-  }
-  if (e.target.id === "location_closer") {
-    // document.getElementById("location_modal").classList.toggle("hidden");
-    // document.getElementById("modal_overlay").classList.toggle("hidden");
+  if (e.target.id === "location-div") {
+    locationDisplay.classList.remove("waiting");
+    altScreen = true;
+    return;
   }
 });
 
@@ -158,9 +160,6 @@ taco.addEventListener("click", () => {
     left: 0,
     behavior: "smooth",
   });
-  // hourDiv.classList.toggle("click-divs");
-  // socialDiv.classList.toggle("click-divs");
-  // locationDiv.classList.toggle("click-divs");
 
   shift();
   setTimeout(() => {
@@ -169,8 +168,7 @@ taco.addEventListener("click", () => {
     displayMenu.classList.toggle("disappear");
     displayMenuActual.classList.toggle("hidden");
     dropItLikeItsHot();
-  }, 0);
-  // menuSwitcher();
+  }, 500);
 });
 const dropTheSalad = (e) => {
   let saladBowl = document.querySelectorAll("[data-fall]");
@@ -179,17 +177,11 @@ const dropTheSalad = (e) => {
 };
 const dropItLikeItsHot = (e) => {
   console.log("dropping");
-  // console.log(ddMenu.length)
   for (let i = 0; i < ddMenu.length; i++) {
-    // console.log(i);
-    // console.log(ddMenu[i].classList);
     ddMenu[i].classList.toggle(`dropdown-menu-active${i}`);
     ddMenu[i].classList.toggle(`dropdown-menu-inactive`);
     ddMenu[i].classList.toggle(`hidden`);
-    // console.log(ddMenu[i].classList);
-    // ddMenu.forEach(menuTab =>menuTab.classList.toggle(`dropdown-menu-active${i}`));
   }
-  // console.log(displayMenu);
   dropTheSalad();
   if (loaded === false) {
     generateMenuCategories();
@@ -222,10 +214,9 @@ function displaySlides(num) {
 }
 
 const timeCop = () => {
-  console.log("time cop called!");
   const timer = setInterval(function () {
     setSlides(1);
-  }, 2500);
+  }, 2000);
 };
 
 function myStopFunction() {
