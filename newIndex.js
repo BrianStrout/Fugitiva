@@ -108,31 +108,35 @@ const sortAndPost = () => {
 
 document.addEventListener("click", (e) => {
   console.log(e.target.id);
-  if (altScreen) {
-    if (
-      e.target.id !== "new-hour-layout" &&
-      !hoursDisplay.classList.contains("waiting")
-    ) {
-      hoursDisplay.classList.add("waiting");
-      altScreen = false;
-      return;
-    }
-    if (
-      e.target.id !== "new-location-layout" &&
-      !locationDisplay.classList.contains("waiting")
-    ) {
-      locationDisplay.classList.add("waiting");
-      altScreen = false;
-      return;
-    }
-  }
+  // if (altScreen) {
+  //   if (
+  //     e.target.id !== "new-hour-layout" &&
+  //     !hoursDisplay.classList.contains("waiting")
+  //   ) {
+  //     hoursDisplay.classList.add("waiting");
+  //     altScreen = false;
+  //     return;
+  //   }
+  //   if (
+  //     e.target.id !== "new-location-layout" &&
+  //     !locationDisplay.classList.contains("waiting")
+  //   ) {
+  //     locationDisplay.classList.add("waiting");
+  //     altScreen = false;
+  //     return;
+  //   }
+  // }
   if (e.target.id === "hour-div") {
     hoursDisplay.classList.remove("waiting");
     altScreen = true;
+    locationDisplay.classList.add("waiting");
+
     return;
   }
 
   if (e.target.id === "social-div") {
+    locationDisplay.classList.add("waiting");
+    hoursDisplay.classList.add("waiting");
     console.log(e.target.id + "clicked");
     var strWindowFeatures =
       "location=yes,height=700,width=520,scrollbars=yes,status=yes";
@@ -145,6 +149,7 @@ document.addEventListener("click", (e) => {
   if (e.target.id === "location-div") {
     locationDisplay.classList.remove("waiting");
     altScreen = true;
+    hoursDisplay.classList.add("waiting");
     return;
   }
 });

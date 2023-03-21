@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap");
+@font-face {
+  font-family: "cowboy";
+  src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
+}
+
 :root {
   --bgmain: rgb(140, 212, 229);
   --white: #ffffff;
@@ -7,11 +14,7 @@
   --paper: #f1f1d5;
   --font-header: "cowboy";
   --font-standard: "Rock Salt", cursive;
-}
-@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
-@font-face {
-  font-family: "cowboy";
-  src: url("./src/beardsons-font/BeardsonsNormal-rgmY8.ttf");
+  --font-stroutco: "Sue Ellen Francisco", cursive;
 }
 
 * {
@@ -69,11 +72,9 @@ body {
   z-index: 90;
   transform-origin: center;
 }
-
 .menu-taco-upright:hover {
   animation: tilt-shaking 0.65s infinite;
 }
-
 .menu-taco-tilt {
   animation: up-tilt-shaking 0.65s infinite;
 }
@@ -87,7 +88,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .dropDown {
   padding-top: clamp(100px, 18vw, 600px);
   padding-bottom: clamp(40px, 10vw, 600px);
@@ -204,7 +204,7 @@ body {
   grid-area: "display";
   padding-left: 20vw;
   width: 100%;
-  height: clamp(300px, 40vw, 700px);
+  height: clamp(300px, 70vh, 700px);
   background-color: var(--bgmain);
 }
 .homeDisplay {
@@ -212,7 +212,7 @@ body {
   width: clamp(300px, 40vw, 500px);
   z-index: 2;
   flex-grow: 1;
-  min-height: 100%;
+  /* min-height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -406,6 +406,9 @@ img {
 .waiting {
   transform: translateX(-110vw);
 }
+.waitable {
+  transition: all 0.4s ease-out;
+}
 
 #addy {
   position: absolute;
@@ -446,7 +449,7 @@ img {
 }
 
 #welcome {
-  margin-top: 2rem;
+  margin-top: 10px;
   margin-left: 5vw;
   font-family: "Rock Salt", cursive;
   font-size: 1.25rem;
@@ -462,6 +465,7 @@ img {
   font-size: 1rem;
   text-decoration: underline;
   font-weight: 300;
+  font-family: var(--font-header);
 }
 .margin-left {
   margin-left: 50vw;
@@ -521,10 +525,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--font-stroutco);
 }
 
 .stroutcofoot > p > a {
   color: black;
+  /* font-weight: bolder; */
 }
 .stroutcofoot > img {
   margin: 0px 10px;
@@ -629,7 +635,9 @@ img {
   .header {
     padding-left: 10vw;
   }
-
+  #welcome {
+    font-size: 10px;
+  }
   #displayMenu {
     padding-left: 0;
     /* background-color: #ffffff; */
@@ -640,5 +648,14 @@ img {
   }
   .margin-left {
     margin-left: 30vw;
+  }
+  #hours_list > li {
+    font-size: 12px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
   }
 }
