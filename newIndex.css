@@ -5,6 +5,8 @@
   --header: clamp(250px, 14%, 300px);
   --icon-width: clamp(80px, 20vw, 20vh);
   --paper: #f1f1d5;
+  --font-header: "cowboy";
+  --font-standard: "Rock Salt", cursive;
 }
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 @font-face {
@@ -232,6 +234,7 @@ body {
 #hours_list > li {
   list-style: none;
   margin-left: 0.5rem;
+  font-family: var(--font-standard);
 }
 
 .new-location-layout {
@@ -350,6 +353,40 @@ img {
   transform-origin: center;
 }
 
+.click-mes:hover {
+  animation: chipper 1.5s ease-in-out 0s 1 forwards;
+}
+
+@keyframes chipper {
+  0% {
+    transform: translateY(0px) rotatey(0deg) scaleY(100%);
+  }
+  10% {
+    transform: translateY(10px) rotatey(0deg) scaleY(90%);
+  }
+  20% {
+    transform: translateY(0px) rotatey(0deg) scaleY(100%);
+  }
+  30% {
+    transform: translateY(-30px) rotatey(0deg) scaleY(100%);
+  }
+  50% {
+    transform: translateY(-30px) rotatey(360deg) scaleY(100%) scaleX(100%);
+  }
+  68% {
+    transform: translateY(10px) rotatey(360deg) scaleY(90%) scaleX(105%);
+  }
+  80% {
+    transform: translateY(15px) rotatey(360deg) scaleY(85%) scaleX(108%);
+  }
+  90% {
+    transform: translateY(15px) rotatey(360deg) scaleY(85%) scaleX(108%);
+  }
+  100% {
+    transform: translateY(0px) rotatey(360deg) scaleX(100%);
+  }
+}
+
 #hour-div {
   transition: transform 0.5s ease-out 0.45s;
   background-image: url("src/images/minfugclock.png");
@@ -393,6 +430,7 @@ img {
 }
 #hours_title {
   margin: 1rem;
+  font-family: var(--font-header);
 }
 
 .material-symbols-outlined {
